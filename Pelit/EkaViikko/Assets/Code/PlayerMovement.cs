@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
         if(callbackContext.performed)
         {
             moveDir = new Vector2(0F, 1F);
+            transform.up = new Vector3(0,0,0);
         }
     }
 
@@ -27,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
         if(callbackContext.performed)
         {
             moveDir = new Vector2(-1F, 0F);
+            transform.up = new Vector3(-90,0,0);
         }
     }
 
@@ -35,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
         if(callbackContext.performed)
         {
             moveDir = new Vector2(1F, 0F);
+            transform.up = new Vector3(90,0,0);
         }
     }
 
