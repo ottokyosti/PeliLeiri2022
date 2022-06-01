@@ -12,10 +12,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private StopMovement movement;
 
+    [SerializeField]
+    private float health = 3;
+
+    private float origHealth;
+
     private GameStateManager gameStateManager;
 
     void Awake()
     {
+        origHealth = health;
         gameStateManager = FindObjectOfType<GameStateManager>();
     }
 
@@ -71,6 +77,19 @@ public class PlayerMovement : MonoBehaviour
         if(col.gameObject.tag == "lava")
         {
             gameStateManager.GameOver();
+        }
+        else if(col.gameObject.tag == "enemy")
+        {
+            health -= col.gameObject.GetComponent<Enemy>().health;
+
+            if(health < 0)
+            {
+                gameStateManager.GameOver();
+            }
+        }
+        else if(col.gameObject.tag == "powerup")
+        {
+            health = origHealth;
         }
     }
 }
