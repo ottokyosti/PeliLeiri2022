@@ -118,11 +118,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502382489033468124}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ecc96b989a032140808755e769402f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
+  sprites:
+  - {fileID: 21300000, guid: 522c3bb555ed4ea4781e7138da9c23a9, type: 3}
+  - {fileID: 21300000, guid: 522c3bb555ed4ea4781e7138da9c23a9, type: 3}
+  - {fileID: 21300000, guid: 522c3bb555ed4ea4781e7138da9c23a9, type: 3}
 --- !u!50 &1880999940650177269
 Rigidbody2D:
   serializedVersion: 4

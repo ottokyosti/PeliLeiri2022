@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField, Tooltip("A reference to the UI of the health parameter")] private GameObject healthSlider;
+
     private Vector2 moveDir;
 
     private bool move = false;
@@ -38,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnMoveLeft(InputAction.CallbackContext callbackContext)
     {
         move = !move;
-        if(callbackContext.performed)
+        if(callbackContext.performed && transform.position.x != -8.5f)
         {
             moveDir = new Vector2(-1F, 0F);
             transform.up = new Vector3(-90,0,0);
@@ -48,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnMoveRight(InputAction.CallbackContext callbackContext)
     {
         move = !move;
-        if(callbackContext.performed)
+        if(callbackContext.performed && transform.position.x != 8.5f)
         {
             moveDir = new Vector2(1F, 0F);
             transform.up = new Vector3(90,0,0);
@@ -81,8 +84,9 @@ public class PlayerMovement : MonoBehaviour
         else if(col.gameObject.tag == "enemy")
         {
             health -= col.gameObject.GetComponent<Enemy>().health;
+            healthSlider.GetComponent<Slider>().value--;
 
-            if(health < 0)
+            if(health == 0)
             {
                 gameStateManager.GameOver();
             }
@@ -90,6 +94,7 @@ public class PlayerMovement : MonoBehaviour
         else if(col.gameObject.tag == "powerup")
         {
             health = origHealth;
+            healthSlider.GetComponent<Slider>().value = health;
         }
     }
 }
