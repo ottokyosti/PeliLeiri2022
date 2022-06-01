@@ -9,7 +9,7 @@ public class Spawner : MonoBehaviour
     [SerializeField, Tooltip("The diggable gameobject that the spawner will spawn")] private GameObject diggable;
     [SerializeField, Tooltip("The gameobject obstacle that the spawner will spawn")] private GameObject obstacle;
     private int[] randArray = new int[4];
-    private float xPos = -8f;
+    private float xPos = -8.5f;
 
     private void Start()
     {
@@ -35,7 +35,7 @@ public class Spawner : MonoBehaviour
                     xPos++;
                 }
             }
-            xPos = -8f;
+            xPos = -8.5f;
             earlierPosition = this.gameObject.transform.position;
         }
     }

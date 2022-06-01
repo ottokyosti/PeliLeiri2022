@@ -9,10 +9,8 @@ public class PlayerMovement : MonoBehaviour
 
     private bool move = false;
 
-    void Update()
-    {
-        Debug.Log(moveDir);
-    }
+    [SerializeField]
+    private StopMovement movement;
 
     private void OnMoveUp(InputAction.CallbackContext callbackContext)
     {
@@ -52,6 +50,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
-        gameObject.transform.position += (Vector3)moveDir.normalized;
+        if(movement.canMove)
+        {
+            gameObject.transform.position += (Vector3)moveDir.normalized;
+        }
     }
 }
