@@ -12,8 +12,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private StopMovement movement;
 
+    private GameStateManager gameStateManager;
+
+    void Awake()
+    {
+        gameStateManager = FindObjectOfType<GameStateManager>();
+    }
+
     private void OnMoveUp(InputAction.CallbackContext callbackContext)
     {
+        move = !move;
         if(callbackContext.performed)
         {
             moveDir = new Vector2(0F, 1F);
@@ -23,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnMoveLeft(InputAction.CallbackContext callbackContext)
     {
+        move = !move;
         if(callbackContext.performed)
         {
             moveDir = new Vector2(-1F, 0F);
@@ -32,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnMoveRight(InputAction.CallbackContext callbackContext)
     {
+        move = !move;
         if(callbackContext.performed)
         {
             moveDir = new Vector2(1F, 0F);
@@ -53,6 +63,14 @@ public class PlayerMovement : MonoBehaviour
         if(movement.canMove)
         {
             gameObject.transform.position += (Vector3)moveDir.normalized;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if(col.gameObject.tag == "lava")
+        {
+            gameStateManager.GameOver();
         }
     }
 }
