@@ -1846,8 +1846,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 100
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0.7830189, g: 0.25696003, b: 0.018467424, a: 1}
+  m_Sprite: {fileID: 21300000, guid: e9ac3ed038e3e34458162da5cf50798f, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -20129,6 +20129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraSpeed: 1
+  moveTimer: 109
 --- !u!1001 &1365112676
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24437,6 +24438,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: 30
   diggable: {fileID: 502382489033468124, guid: a8ae8d55280d8e14888aed325ea121dc, type: 3}
+  enemy: {fileID: 13222672141620672, guid: 3000b259196b37b4ba36ad9b85213cab, type: 3}
+  obstacle: {fileID: 502382489033468124, guid: 44a0d842113435043a7c8ed3b1f4407d, type: 3}
 --- !u!1001 &1705045291
 PrefabInstance:
   m_ObjectHideFlags: 0
