@@ -14,6 +14,12 @@ public class Diggable : MonoBehaviour
     [SerializeField, Tooltip("Array containing different earth sprites")] private Sprite[] sprites;
     private SpriteRenderer spriteRenderer;
 
+    [SerializeField]
+    private GameObject background;
+
+    [SerializeField]
+    private GameObject particle;
+
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -37,6 +43,8 @@ public class Diggable : MonoBehaviour
     {
         if(col.gameObject.tag == "Player")
         {
+            Instantiate(background, transform.position, transform.rotation);
+            Instantiate(particle, transform.position, transform.rotation);
             Destroy(this.gameObject);
         }
     }

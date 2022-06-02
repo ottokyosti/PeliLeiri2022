@@ -12,6 +12,9 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     public float health = 1;
 
+    [SerializeField]
+    private GameObject background;
+
     void Start()
     {
         scoreManager = FindObjectOfType<ScoreManager>();
@@ -22,6 +25,7 @@ public class Enemy : MonoBehaviour
         if(col.gameObject.tag == "Player")
         {
             scoreManager.AddScore(points);
+            Instantiate(background, transform.position, transform.rotation);
             Destroy(this.gameObject);
         }
     }
