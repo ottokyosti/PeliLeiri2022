@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 502382489033468126}
   - component: {fileID: 502382489033468121}
   - component: {fileID: 502382489033468120}
+  - component: {fileID: -318772160911844055}
   m_Layer: 0
   m_Name: diggable
   m_TagString: Untagged
@@ -122,10 +123,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ecc96b989a032140808755e769402f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
+  state: 2
   sprites:
   - {fileID: 21300000, guid: a9d3c7e6cff54cf4b8029a9cd621e841, type: 3}
   - {fileID: 21300000, guid: 0d9517813c400bf488138b729291459d, type: 3}
   - {fileID: 21300000, guid: 373381fe77e119244bd4b5b609926ca8, type: 3}
   background: {fileID: 7392761917411789443, guid: 30b7a78589259e047a2791cb3f15ad46, type: 3}
   particle: {fileID: 463031038887377328, guid: b30d0ea5479efde4a8d33fa71d84b62a, type: 3}
+--- !u!114 &-318772160911844055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 502382489033468124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91ae85a9c430d6a4abf8e72934b59a48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

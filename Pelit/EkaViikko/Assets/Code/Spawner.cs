@@ -13,6 +13,10 @@ public class Spawner : MonoBehaviour
     [SerializeField, Tooltip("Time between magma enemy spawns (in seconds)")] private float enemyTimer;
     [SerializeField, Tooltip("Minimum time between power up spawns (in seconds)")] private float minPowerUpTimer;
     [SerializeField, Tooltip("Maximum time between power up spawns (in seconds) + 1")] private float maxPowerUpTimer;
+
+    [SerializeField]
+    private float destroyTimer = 90;
+
     private float powerUpTimer;
     private float enemyTimerOriginal;
     private int[] randArray = new int[4];
@@ -35,6 +39,12 @@ public class Spawner : MonoBehaviour
 
     private void Update()
     {
+        destroyTimer -= Time.deltaTime;
+        if(destroyTimer <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+
         if (enemyTimer > 0)
         {
             enemyTimer -= Time.deltaTime;
