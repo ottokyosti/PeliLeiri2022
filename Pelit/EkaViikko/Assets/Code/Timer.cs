@@ -8,6 +8,7 @@ public class Timer : MonoBehaviour
     private float timerAmount;
     [SerializeField] private GameObject diggable;
     [SerializeField] private GameObject enemy;
+    [SerializeField] private GameObject obstacle;
     private int count;
 
     private void Start()
@@ -15,6 +16,7 @@ public class Timer : MonoBehaviour
         timerAmount = timer;
         diggable.GetComponent<Diggable>().state = Diggable.SpriteState.Rock;
         enemy.GetComponent<Enemy>().frontState = Enemy.Front.Magma;
+        obstacle.GetComponent<Diggable>().state = Diggable.SpriteState.Rock;
     }
 
     private void Update()
@@ -30,6 +32,8 @@ public class Timer : MonoBehaviour
                     diggable.GetComponent<Diggable>().state = (Diggable.SpriteState) typeInt;
                     typeInt = (int) enemy.GetComponent<Enemy>().frontState + 1;
                     enemy.GetComponent<Enemy>().frontState = (Enemy.Front) typeInt;
+                    typeInt = (int) obstacle.GetComponent<Diggable>().state + 1;
+                    obstacle.GetComponent<Diggable>().state = (Diggable.SpriteState) typeInt;
                 }
                 count++;
                 timer = timerAmount;

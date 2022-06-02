@@ -2497,6 +2497,7 @@ MonoBehaviour:
   timer: 30
   diggable: {fileID: 502382489033468124, guid: a8ae8d55280d8e14888aed325ea121dc, type: 3}
   enemy: {fileID: 13222672141620672, guid: 3000b259196b37b4ba36ad9b85213cab, type: 3}
+  obstacle: {fileID: 502382489033468124, guid: 44a0d842113435043a7c8ed3b1f4407d, type: 3}
 --- !u!1 &1749223152
 GameObject:
   m_ObjectHideFlags: 0
