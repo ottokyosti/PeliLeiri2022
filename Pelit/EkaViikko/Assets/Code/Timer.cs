@@ -11,7 +11,7 @@ public class Timer : MonoBehaviour
     [SerializeField] private GameObject obstacle;
     private int count;
 
-    private void Start()
+    private void Awake()
     {
         timerAmount = timer;
         diggable.GetComponent<Diggable>().state = Diggable.SpriteState.Rock;
