@@ -6,9 +6,19 @@ public class GameStateManager : MonoBehaviour
 {
     [SerializeField]
     private GameObject gameOverText;
-    public void GameOver()
+
+    [SerializeField]
+    private GameObject winText;
+    public void GameOver(bool win)
     {
-        Time.timeScale = 0;
-        gameOverText.SetActive(true);
+        if(win)
+        {
+            winText.SetActive(true);
+        }
+        else
+        {
+            Time.timeScale = 0;
+            gameOverText.SetActive(true);
+        }
     }
 }

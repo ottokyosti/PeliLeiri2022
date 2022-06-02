@@ -8,6 +8,7 @@ TagManager:
   - lava
   - enemy
   - powerup
+  - sky
   layers:
   - Default
   - TransparentFX

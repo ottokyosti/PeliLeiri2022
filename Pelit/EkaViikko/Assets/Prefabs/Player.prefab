@@ -207,6 +207,7 @@ MonoBehaviour:
   movement: {fileID: 6734255701500705294}
   health: 3
   sprite: {fileID: 6734255703342557902}
+  dead: {fileID: 356982330355236665, guid: 686b026e3efaec749a93e4d6f8c470c8, type: 3}
 --- !u!82 &4065981189795368373
 AudioSource:
   m_ObjectHideFlags: 0

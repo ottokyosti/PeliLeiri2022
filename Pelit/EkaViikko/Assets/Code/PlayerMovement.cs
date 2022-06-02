@@ -27,6 +27,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private GameObject sprite;
 
+    [SerializeField]
+    private GameObject dead;
+
     private bool isItUp;
     private AudioSource audioSource;
 
@@ -105,7 +108,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if(col.gameObject.tag == "lava")
         {
-            gameStateManager.GameOver();
+            Instantiate(dead, transform.position, transform.rotation);
+            Destroy(this.gameObject);
+            gameStateManager.GameOver(false);
         }
         else if(col.gameObject.tag == "enemy")
         {
@@ -123,13 +128,20 @@ public class PlayerMovement : MonoBehaviour
 
             if(health == 0)
             {
-                gameStateManager.GameOver();
+                Instantiate(dead, transform.position, transform.rotation);
+                Destroy(this.gameObject);
+                gameStateManager.GameOver(false);
             }
         }
         else if(col.gameObject.tag == "powerup")
         {
             health = origHealth;
             healthSlider.GetComponent<Slider>().value = health;
+        }
+        else if(col.gameObject.tag == "sky")
+        {
+            Destroy(this);
+            gameStateManager.GameOver(true);
         }
     }
 }
