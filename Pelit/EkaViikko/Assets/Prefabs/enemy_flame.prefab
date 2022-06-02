@@ -145,9 +145,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71f3ec241d54eb49a429d2c236c44c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  frontState: 0
   points: 1
   health: 1
   background: {fileID: 7392761917411789443, guid: 30b7a78589259e047a2791cb3f15ad46, type: 3}
+  fronts:
+  - {fileID: 21300000, guid: 95cb91427d131d945ac6f6acdd36befa, type: 3}
+  - {fileID: 21300000, guid: 6e95cefa36fcc384bac1e84ac58e97a1, type: 3}
+  - {fileID: 21300000, guid: 4fdf9d25b4967c641bb1881b8dfbb452, type: 3}
 --- !u!1 &4720644199125958005
 GameObject:
   m_ObjectHideFlags: 0
