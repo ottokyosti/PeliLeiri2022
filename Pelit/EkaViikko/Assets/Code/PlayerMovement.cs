@@ -28,12 +28,14 @@ public class PlayerMovement : MonoBehaviour
     private GameObject sprite;
 
     private bool isItUp;
+    private AudioSource audioSource;
 
     void Awake()
     {
         origHealth = health;
         gameStateManager = FindObjectOfType<GameStateManager>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnMoveUp(InputAction.CallbackContext callbackContext)
@@ -88,6 +90,7 @@ public class PlayerMovement : MonoBehaviour
         if(movement.canMove)
         {
             gameObject.transform.position += (Vector3)moveDir.normalized;
+            audioSource.Play();
         }
     }
 

@@ -153,6 +153,15 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 95cb91427d131d945ac6f6acdd36befa, type: 3}
   - {fileID: 21300000, guid: 6e95cefa36fcc384bac1e84ac58e97a1, type: 3}
   - {fileID: 21300000, guid: 4fdf9d25b4967c641bb1881b8dfbb452, type: 3}
+  soundEffects:
+  - {fileID: 1516215716317321202, guid: c83657e324795dc40935ac11d5c0477c, type: 3}
+  - {fileID: 1516215716317321202, guid: 037cefdc84d79c140856538b1cf0cec3, type: 3}
+  - {fileID: 1516215716317321202, guid: 9ebebce43e571f84486dc81c0064f547, type: 3}
+  itemBackgrounds:
+  - {fileID: 21300000, guid: a9d3c7e6cff54cf4b8029a9cd621e841, type: 3}
+  - {fileID: 21300000, guid: 0d9517813c400bf488138b729291459d, type: 3}
+  - {fileID: 21300000, guid: 373381fe77e119244bd4b5b609926ca8, type: 3}
+  child: {fileID: 4720644199125958005}
 --- !u!1 &4720644199125958005
 GameObject:
   m_ObjectHideFlags: 0
