@@ -397,11 +397,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33b732ca9d08a38439e953aabbed305f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vertical: 0
+  vertical: 1
   spawnObject: {fileID: 4492565270400663370, guid: 77ad1664b63484349bdfa10b56942a1c, type: 3}
   limNegative: -3
   limPositive: 3
   spawnTimer: 1
+  spawnOffset: 0.3
 --- !u!212 &927477113
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -460,13 +461,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 927477111}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.25, y: 2.52, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 9.47, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &1003887711
 GameObject:
   m_ObjectHideFlags: 0
@@ -903,6 +904,14 @@ PrefabInstance:
     - target: {fileID: 4492565270400663370, guid: 77ad1664b63484349bdfa10b56942a1c, type: 3}
       propertyPath: m_Name
       value: Square
+      objectReference: {fileID: 0}
+    - target: {fileID: 4492565270400663371, guid: 77ad1664b63484349bdfa10b56942a1c, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4492565270400663371, guid: 77ad1664b63484349bdfa10b56942a1c, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4492565270400663382, guid: 77ad1664b63484349bdfa10b56942a1c, type: 3}
       propertyPath: m_RootOrder
