@@ -38,7 +38,11 @@ public class Spawner : MonoBehaviour
         spawnTimer -= Time.deltaTime;
         if(spawnTimer <= 0)
         {
-            Spawn();
+            int i = Random.Range(0, 3);
+            if(!(i == 0))
+            {
+                Spawn();
+            }
             spawnTimer = origSpawnTimer + Random.Range(-spawnOffset, spawnOffset);
         }
     }
