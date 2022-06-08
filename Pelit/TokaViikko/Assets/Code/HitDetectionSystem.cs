@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HitDetectionSystem : MonoBehaviour
 {
+    [SerializeField] private GameObject scoreBoard;
     private GameObject clickedObject;
 
     private void Update()
@@ -13,7 +14,8 @@ public class HitDetectionSystem : MonoBehaviour
         if (hitData && Input.GetMouseButtonDown(0))
         {
             clickedObject = hitData.transform.gameObject;
-            //Here goes the code to decrease enemy hp, add score and so on...
+            scoreBoard.GetComponent<ScoreManager>().AddScore(clickedObject.GetComponent<Enemy>().points);
+            Destroy(clickedObject);
         }
     }
 }
