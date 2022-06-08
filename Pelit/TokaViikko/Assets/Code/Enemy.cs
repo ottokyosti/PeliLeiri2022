@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
-{
+{    
+    public float points;
 
     [SerializeField]
     private float speed = 1000f;

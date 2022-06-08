@@ -59,4 +59,9 @@ public class Spawner : MonoBehaviour
             Instantiate(spawnObject, new Vector3(transform.position.x + spawnPoint, transform.position.y, transform.position.z), transform.rotation);
         }
     }
+
+    private void SpeedUp(float amount)
+    {
+        origSpawnTimer -= amount;
+    }
 }
