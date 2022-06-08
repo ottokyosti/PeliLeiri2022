@@ -14,8 +14,19 @@ public class HitDetectionSystem : MonoBehaviour
         if (hitData && Input.GetMouseButtonDown(0))
         {
             clickedObject = hitData.transform.gameObject;
-            scoreBoard.GetComponent<ScoreManager>().AddScore(clickedObject.GetComponent<Enemy>().points);
-            Destroy(clickedObject);
+            if (clickedObject.tag.Equals("enemy_fat"))
+            {
+                clickedObject.GetComponent<FatEnemy>()._health -= 1;
+                if (clickedObject.GetComponent<FatEnemy>()._health == 0)
+                {
+                    scoreBoard.GetComponent<ScoreManager>().AddScore(clickedObject.GetComponent<FatEnemy>().points);
+                }
+            }
+            else
+            {
+                clickedObject.GetComponent<Enemy>()._health -= 1;
+                scoreBoard.GetComponent<ScoreManager>().AddScore(clickedObject.GetComponent<Enemy>().points);
+            }
         }
     }
 }

@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - enemy_fast
+  - enemy_normal
+  - enemy_fat
+  - friendly
   layers:
   - Default
   - TransparentFX

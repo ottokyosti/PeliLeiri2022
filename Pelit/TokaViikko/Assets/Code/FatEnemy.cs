@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Enemy : MonoBehaviour
+public class FatEnemy : MonoBehaviour
 {    
     public int points;
 
@@ -14,18 +15,23 @@ public class Enemy : MonoBehaviour
         get { return health; }
         set { health = value; }
     }
+    [SerializeField] private Slider healthSlider;
     private float destroyTime = 10;
 
-    // Start is called before the first frame update
     void Start()
     {
+        healthSlider.gameObject.SetActive(false);
         Debug.Log(transform.up * speed);
         GetComponent<Rigidbody2D>().AddForce(transform.up * speed);
     }
 
-    // Update is called once per frame
     void Update()
     {
+        healthSlider.value = health;
+        if (health == 2)
+        {
+            healthSlider.gameObject.SetActive(true);
+        }
         if (health == 0)
         {
             Destroy(this.gameObject);

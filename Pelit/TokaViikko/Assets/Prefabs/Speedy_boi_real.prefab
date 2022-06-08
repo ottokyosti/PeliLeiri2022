@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 3024156290636973509}
   - component: {fileID: 6058627517785291871}
   - component: {fileID: 661719846667831932}
-  - component: {fileID: 6113959763696006377}
-  - component: {fileID: 5974948818437704862}
+  - component: {fileID: 161563830965343250}
   m_Layer: 0
-  m_Name: ufo
+  m_Name: rocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 226c9340b68f0314bad42017f6b2d41e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0ed3a1d8ad475784cbc3fa14d0d9ce93, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,7 +97,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.06}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -109,21 +108,9 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.32, y: 0.17}
+  m_Size: {x: 0.26, y: 0.32}
   m_EdgeRadius: 0
---- !u!114 &6113959763696006377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 234186320381986794}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6ff83fbde155be49a122f4540761cf9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!95 &5974948818437704862
+--- !u!95 &161563830965343250
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -133,7 +120,7 @@ Animator:
   m_GameObject: {fileID: 234186320381986794}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 82c6b30781b9fd44587e96d7442fd212, type: 2}
+  m_Controller: {fileID: 9100000, guid: c94e90418c4e4394494a82df974358b7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -155,8 +142,8 @@ GameObject:
   - component: {fileID: 4492565270400663371}
   - component: {fileID: -196854139420193917}
   m_Layer: 0
-  m_Name: Normal_boi
-  m_TagString: enemy_normal
+  m_Name: Speedy_boi_real
+  m_TagString: enemy_fast
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -221,7 +208,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.16, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -261,5 +248,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: 1
-  speed: 100
+  speed: 200
   health: 1
