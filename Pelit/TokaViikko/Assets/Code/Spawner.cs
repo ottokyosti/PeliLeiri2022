@@ -60,7 +60,7 @@ public class Spawner : MonoBehaviour
         }
     }
 
-    private void SpeedUp(float amount)
+    public void SpeedUp(float amount)
     {
         origSpawnTimer -= amount;
     }
