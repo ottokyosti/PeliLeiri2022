@@ -11,6 +11,9 @@ public class ScoreManager : MonoBehaviour
     private PowerupManager powerupManager;
 
     [SerializeField]
+    private TMP_Text endText;
+
+    [SerializeField]
     private float health = 3;
 
     [SerializeField]
@@ -43,10 +46,12 @@ public class ScoreManager : MonoBehaviour
         if(powerupManager.pointsx2)
         {
             score += (amount * 2);
+            endText.text = score.ToString();
         }
         else
         {
             score += amount;
+            endText.text = score.ToString();
         }
         if(score >= 50 && state == SpeedState.normal)
         {
@@ -86,6 +91,7 @@ public class ScoreManager : MonoBehaviour
         {
             GetComponent<TMP_Text>().text = "0";
             score = 0;
+            endText.text = score.ToString();
         }
         else
         {
