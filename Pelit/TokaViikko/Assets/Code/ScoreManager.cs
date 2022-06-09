@@ -33,6 +33,7 @@ public class ScoreManager : MonoBehaviour
             health--;
             if(health <= 0)
             {
+                Cursor.visible = true;
                 gameOver.SetActive(true);
                 Time.timeScale = 0;
             }
