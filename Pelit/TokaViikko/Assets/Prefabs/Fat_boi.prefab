@@ -376,6 +376,7 @@ MonoBehaviour:
   speed: 75
   health: 3
   healthSlider: {fileID: 8328306069239930642}
+  explosionSound: {fileID: 2203768947688205679, guid: 377590c593976c24895fbc1bdf9e5354, type: 3}
 --- !u!1 &6923127590807913614
 GameObject:
   m_ObjectHideFlags: 0

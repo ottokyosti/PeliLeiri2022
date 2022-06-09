@@ -263,3 +263,4 @@ MonoBehaviour:
   points: -1
   speed: 100
   health: 1
+  explosionSound: {fileID: 2203768947688205679, guid: 5af384491b765714cafa4871196ddc93, type: 3}

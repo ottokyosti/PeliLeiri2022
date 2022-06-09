@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
         set { health = value; }
     }
     private float destroyTime = 10;
+    [SerializeField] private GameObject explosionSound;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,7 @@ public class Enemy : MonoBehaviour
     {
         if (health == 0)
         {
+            Instantiate(explosionSound, transform.position, transform.rotation);
             Destroy(this.gameObject);
         }
         destroyTime -= Time.deltaTime;

@@ -17,6 +17,7 @@ public class FatEnemy : MonoBehaviour
     }
     [SerializeField] private Slider healthSlider;
     private float destroyTime = 10;
+    [SerializeField] private GameObject explosionSound;
 
     void Start()
     {
@@ -34,6 +35,7 @@ public class FatEnemy : MonoBehaviour
         }
         if (health == 0)
         {
+            Instantiate(explosionSound, transform.position, transform.rotation);
             Destroy(this.gameObject);
         }
         destroyTime -= Time.deltaTime;
