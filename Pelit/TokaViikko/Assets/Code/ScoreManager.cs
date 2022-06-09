@@ -1,11 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
     private int score;
+
+    [SerializeField]
+    private float health = 3;
+
+    [SerializeField]
+    private GameObject healthSlider;
+
+    [SerializeField]
+    private GameObject gameOver;
 
     [SerializeField]
     private GameObject[] spawners;
@@ -17,6 +27,16 @@ public class ScoreManager : MonoBehaviour
 
     public void AddScore(int amount)
     {
+        if(amount < 0)
+        {
+            healthSlider.GetComponent<Slider>().value--;
+            health--;
+            if(health <= 0)
+            {
+                gameOver.SetActive(true);
+                Time.timeScale = 0;
+            }
+        }
         score += amount;
         if(score >= 50 && state == SpeedState.normal)
         {
