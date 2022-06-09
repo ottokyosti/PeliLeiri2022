@@ -8,6 +8,8 @@ public class ScoreManager : MonoBehaviour
 {
     private int score;
 
+    private PowerupManager powerupManager;
+
     [SerializeField]
     private float health = 3;
 
@@ -38,7 +40,14 @@ public class ScoreManager : MonoBehaviour
                 Time.timeScale = 0;
             }
         }
-        score += amount;
+        if(powerupManager.pointsx2)
+        {
+            score += (amount * 2);
+        }
+        else
+        {
+            score += amount;
+        }
         if(score >= 50 && state == SpeedState.normal)
         {
             state = SpeedState.fast;
@@ -68,6 +77,7 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         state = SpeedState.normal;
+        powerupManager = FindObjectOfType<PowerupManager>();
     }
 
     private void Update()

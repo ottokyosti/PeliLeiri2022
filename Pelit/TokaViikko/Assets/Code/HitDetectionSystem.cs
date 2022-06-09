@@ -5,12 +5,15 @@ using UnityEngine;
 public class HitDetectionSystem : MonoBehaviour
 {
     [SerializeField] private GameObject scoreBoard;
+    [SerializeField] private GameObject powerUpDisplay;
     private GameObject clickedObject;
     private AudioSource audioSource;
+    private PowerupManager powerupManager;
 
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        powerupManager = FindObjectOfType<PowerupManager>();
     }
 
     private void Update()
@@ -31,6 +34,12 @@ public class HitDetectionSystem : MonoBehaviour
                 {
                     scoreBoard.GetComponent<ScoreManager>().AddScore(clickedObject.GetComponent<FatEnemy>().points);
                 }
+            }
+            else if(clickedObject.tag.Equals("power"))
+            {
+                clickedObject.GetComponent<Enemy>()._health -= 1;
+                powerupManager.pointsx2 = true;
+                powerUpDisplay.SetActive(true);
             }
             else
             {
