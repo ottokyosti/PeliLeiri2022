@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: points
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -196854139420193917, guid: 77ad1664b63484349bdfa10b56942a1c, type: 3}
+      propertyPath: explosionSound
+      value: 
+      objectReference: {fileID: 2203768947688205679, guid: 626a63284377f6242be5e2f230cedd00, type: 3}
     - target: {fileID: 234186320381986794, guid: 77ad1664b63484349bdfa10b56942a1c, type: 3}
       propertyPath: m_Name
       value: sprite
