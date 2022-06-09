@@ -71,6 +71,14 @@ public class ScoreManager : MonoBehaviour
 
     private void Update()
     {
-        GetComponent<TMP_Text>().text = score.ToString();
+        if (score <= 0)
+        {
+            GetComponent<TMP_Text>().text = "0";
+            score = 0;
+        }
+        else
+        {
+            GetComponent<TMP_Text>().text = score.ToString();
+        }  
     }
 }
