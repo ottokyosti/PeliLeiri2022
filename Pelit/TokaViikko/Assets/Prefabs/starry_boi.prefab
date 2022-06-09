@@ -260,7 +260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49452b5d37f54e04981bcb39becbba28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: -1
+  points: -20
   speed: 100
   health: 1
   explosionSound: {fileID: 2203768947688205679, guid: 5af384491b765714cafa4871196ddc93, type: 3}
