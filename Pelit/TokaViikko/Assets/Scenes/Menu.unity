@@ -181,8 +181,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: Your job is to destroy any unidentified flying objects by shooting them
-    down while being careful that you don't shoot down any friendly flyers. Hitting
-    friendly fliers will affect your score negatively.
+    down while being careful that you don't shoot down any friendly stars. Hitting
+    friendly stars will affect your score negatively.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
