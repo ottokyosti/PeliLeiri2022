@@ -10,4 +10,14 @@ public class LoadNextScene : MonoBehaviour
         int index = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(index + 1);
     }
+
+    public void LevelLoad(int levelIndex)
+    {
+        SceneManager.LoadScene(levelIndex);
+    }
+    
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }
