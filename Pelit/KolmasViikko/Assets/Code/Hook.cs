@@ -36,8 +36,6 @@ public class Hook : MonoBehaviour
     {
         if(col.gameObject.tag == "can_grapple")
         {
-            rigidBody.velocity = Vector3.zero;
-            rigidBody.angularVelocity = 0;
             rigidBody.bodyType = RigidbodyType2D.Static;
             attached = true;
         }
