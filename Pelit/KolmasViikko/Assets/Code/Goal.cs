@@ -8,6 +8,9 @@ public class Goal : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        endOfLevelMenu.SetActive(true);
+        if(col.gameObject.tag == "Player")
+        {
+            endOfLevelMenu.SetActive(true);
+        }
     }
 }
