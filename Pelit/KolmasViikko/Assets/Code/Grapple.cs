@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class Grapple : MonoBehaviour
 {
-    private bool m1Held = false;
-
     [SerializeField]
     private GameObject grapple;
+
+    [SerializeField]
+    private float grappleCooldown = 1.5f;
+
+    private bool can_grapple = true;
 
     private GameObject grappleIns;
 
@@ -29,18 +32,25 @@ public class Grapple : MonoBehaviour
         }
         if (Input.GetMouseButton(0))
         {
-            m1Held = true;
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButtonDown(1) && grappleHook.GetComponent<Hook>().attached && can_grapple)
             {
                 PullPlayer();
+                StartCoroutine(Cooldown());
             }
         }
         else if (!Input.GetMouseButton(0))
         {
-            m1Held = false;
             this.transform.parent = null;
             Destroy(grappleIns);
+            can_grapple = true;
         }
+    }
+
+    IEnumerator Cooldown()
+    {
+        can_grapple = false;
+        yield return new WaitForSeconds(grappleCooldown);
+        can_grapple = true;
     }
 
     private void ShootGrapple()
@@ -52,6 +62,8 @@ public class Grapple : MonoBehaviour
 
     private void PullPlayer()
     {
-        rigidBody.AddForce((grappleHook.transform.position - transform.position).normalized * 1000);
+        rigidBody.velocity = Vector3.zero;
+        rigidBody.angularVelocity = 0;
+        rigidBody.AddForce((grappleHook.transform.position - transform.position).normalized * 600);
     }
 }

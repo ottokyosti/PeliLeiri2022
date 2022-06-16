@@ -11,6 +11,8 @@ public class Hook : MonoBehaviour
 
     private GameObject playerChar;
 
+    public bool attached = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +39,7 @@ public class Hook : MonoBehaviour
             rigidBody.velocity = Vector3.zero;
             rigidBody.angularVelocity = 0;
             rigidBody.bodyType = RigidbodyType2D.Static;
+            attached = true;
         }
     }
 }
