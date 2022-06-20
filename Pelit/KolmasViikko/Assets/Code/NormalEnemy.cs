@@ -4,60 +4,53 @@ using UnityEngine;
 
 public class NormalEnemy : MonoBehaviour
 {
-    private Vector2 origPosition;
+    private float origPositionX;
     [SerializeField] private float speed;
-    [SerializeField] private bool turn;
-    [SerializeField] private Vector2 positionToGoTo;
+    private bool turn;
+    [SerializeField] private float positionToGoTo;
 
     private void Start()
     {
-        origPosition = transform.position;
-        Debug.Log(origPosition);
-        if (turn)
-        {
-            MoveLeft();
-        }
-        else 
-        {
-            MoveRight();
-        }
+        origPositionX = transform.position.x;
     }
 
     private void Update()
     {
-        if (transform.position.x <= positionToGoTo.x)
+        if (turn)
         {
-            GetComponent<SpriteRenderer>().flipX = true;
-            MoveRight();
+            transform.Translate(new Vector2(origPositionX, 0) * speed * Time.deltaTime);
+        }
+        else
+        {
+            transform.Translate(new Vector2(positionToGoTo, 0) * speed * Time.deltaTime);
         }
         
-        if (transform.position.x >= origPosition.x)
+        if (positionToGoTo < origPositionX)
         {
-            GetComponent<SpriteRenderer>().flipX = false;
-            MoveLeft();
-        }
-    }
-
-    private void MoveRight()
-    {
-        while (true)
-        {
-            transform.Translate(origPosition * speed * Time.deltaTime);
-            if (transform.position.x >= origPosition.x)
+            if (transform.position.x <= positionToGoTo)
             {
-                break;
+                GetComponent<SpriteRenderer>().flipX = true;
+                turn = true;
+            }
+        
+            if (transform.position.x >= origPositionX)
+            {
+                GetComponent<SpriteRenderer>().flipX = false;
+                turn = false;
             }
         }
-    }
-
-    private void MoveLeft()
-    {
-        while (true)
+        else if (positionToGoTo > origPositionX)
         {
-            transform.Translate(positionToGoTo * speed * Time.deltaTime);
-            if (transform.position.x <= positionToGoTo.x)
+            if (transform.position.x >= positionToGoTo)
             {
-                break;
+                GetComponent<SpriteRenderer>().flipX = false;
+                turn = true;
+            }
+        
+            if (transform.position.x <= origPositionX)
+            {
+                GetComponent<SpriteRenderer>().flipX = true;
+                turn = false;
             }
         }
     }
