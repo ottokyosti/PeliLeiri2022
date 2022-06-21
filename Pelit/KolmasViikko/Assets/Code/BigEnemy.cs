@@ -8,6 +8,7 @@ public class BigEnemy : MonoBehaviour
     private Rigidbody2D rb;
     private bool canTug;
     [SerializeField] private float forceAmount;
+    [SerializeField] private GameObject player;
 
     private void Start()
     {
@@ -39,8 +40,14 @@ public class BigEnemy : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1) && canTug)
         {
-            Debug.Log("imnowhere");
-            rb.AddForce(new Vector2(forceAmount, 0));
+            if (player.transform.position.x > transform.position.x)
+            {
+                rb.AddForce(new Vector2(forceAmount, 0));
+            }
+            else if (player.transform.position.x < transform.position.x)
+            {
+                rb.AddForce(new Vector2(-(forceAmount), 0));
+            }
         }
 
         if (transform.position.y < -10f)

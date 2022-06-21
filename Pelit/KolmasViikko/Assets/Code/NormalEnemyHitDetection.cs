@@ -33,14 +33,14 @@ public class NormalEnemyHitDetection : MonoBehaviour
         }
     }
 
-    /*private void OnTriggerExit2D(Collider2D col)
+    private void OnTriggerExit2D(Collider2D col)
     {
         if (safeGuard)
         {
             GetComponent<NormalEnemy>().enabled = true;
             canTug = false;
         }
-    }*/
+    }
 
     private void Update()
     {

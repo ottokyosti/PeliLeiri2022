@@ -4814,8 +4814,12 @@ PrefabInstance:
       value: enemy
       objectReference: {fileID: 0}
     - target: {fileID: 8149975888144186723, guid: ef4d55eab30db1e4eac6d3eebb3217ee, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 45436761}
+    - target: {fileID: 8149975888144186723, guid: ef4d55eab30db1e4eac6d3eebb3217ee, type: 3}
       propertyPath: forceAmount
-      value: -175
+      value: 175
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef4d55eab30db1e4eac6d3eebb3217ee, type: 3}

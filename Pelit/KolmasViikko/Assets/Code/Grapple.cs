@@ -40,7 +40,7 @@ public class Grapple : MonoBehaviour
             else if (Input.GetMouseButtonDown(1) && grappleHook.GetComponent<Hook>().enemy && can_grapple)
             {
                 this.transform.parent = null;
-                Destroy(grappleIns);
+                Destroy(grappleIns, 0.01f);
                 can_grapple = true;
             }
         }
