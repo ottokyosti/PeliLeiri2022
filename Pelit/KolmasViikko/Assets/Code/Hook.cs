@@ -5,6 +5,7 @@ using UnityEngine;
 public class Hook : MonoBehaviour
 {
     private Vector3 direction;
+    
     private Rigidbody2D rigidBody;
 
     private LineRenderer line;
@@ -12,6 +13,7 @@ public class Hook : MonoBehaviour
     private GameObject playerChar;
 
     public bool attached = false;
+    public bool enemy = false;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +40,11 @@ public class Hook : MonoBehaviour
         {
             rigidBody.bodyType = RigidbodyType2D.Static;
             attached = true;
+        }
+        else if(col.gameObject.tag == "enemy")
+        {
+            rigidBody.bodyType = RigidbodyType2D.Static;
+            enemy = true;
         }
     }
 }

@@ -6,37 +6,38 @@ public class NormalEnemy : MonoBehaviour
 {
     private float origPositionX;
     [SerializeField] private float speed;
-    private bool turn;
     [SerializeField] private float positionToGoTo;
+    private Vector2 direction;
 
     private void Start()
     {
         origPositionX = transform.position.x;
+        if (positionToGoTo < origPositionX)
+        {
+            direction = new Vector2(-1, 0);
+        }
+        else if (positionToGoTo > origPositionX)
+        {
+            direction = new Vector2(1, 0);
+        }
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        if (turn)
-        {
-            transform.Translate(new Vector2(origPositionX, 0) * speed * Time.deltaTime);
-        }
-        else
-        {
-            transform.Translate(new Vector2(positionToGoTo, 0) * speed * Time.deltaTime);
-        }
+        transform.Translate(direction * speed * Time.deltaTime);
         
         if (positionToGoTo < origPositionX)
         {
             if (transform.position.x <= positionToGoTo)
             {
                 GetComponent<SpriteRenderer>().flipX = true;
-                turn = true;
+                direction = new Vector2(1, 0);
             }
         
             if (transform.position.x >= origPositionX)
             {
                 GetComponent<SpriteRenderer>().flipX = false;
-                turn = false;
+                direction = new Vector2(-1, 0);
             }
         }
         else if (positionToGoTo > origPositionX)
@@ -44,13 +45,13 @@ public class NormalEnemy : MonoBehaviour
             if (transform.position.x >= positionToGoTo)
             {
                 GetComponent<SpriteRenderer>().flipX = false;
-                turn = true;
+                direction = new Vector2(-1, 0);
             }
         
             if (transform.position.x <= origPositionX)
             {
                 GetComponent<SpriteRenderer>().flipX = true;
-                turn = false;
+                direction = new Vector2(1, 0);
             }
         }
     }

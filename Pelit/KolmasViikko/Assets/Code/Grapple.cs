@@ -37,6 +37,12 @@ public class Grapple : MonoBehaviour
                 PullPlayer();
                 StartCoroutine(Cooldown());
             }
+            else if (Input.GetMouseButtonDown(1) && grappleHook.GetComponent<Hook>().enemy && can_grapple)
+            {
+                this.transform.parent = null;
+                Destroy(grappleIns);
+                can_grapple = true;
+            }
         }
         else if (!Input.GetMouseButton(0))
         {

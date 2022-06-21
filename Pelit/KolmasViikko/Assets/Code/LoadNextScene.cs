@@ -8,7 +8,7 @@ public class LoadNextScene : MonoBehaviour
     public void LoadNext()
     {
         int index = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(index + 1);
+        SceneManager.LoadScene((index + 1));
     }
 
     public void LevelLoad(int levelIndex)

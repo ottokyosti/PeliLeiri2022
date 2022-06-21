@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1508333190947906499}
   m_Layer: 0
   m_Name: GrappleGun
-  m_TagString: Untagged
+  m_TagString: hook
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 523514325019646270}
   m_Layer: 0
   m_Name: Hook
-  m_TagString: Untagged
+  m_TagString: hook
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -301,6 +301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attached: 0
+  enemy: 0
 --- !u!61 &523514325019646270
 BoxCollider2D:
   m_ObjectHideFlags: 0
