@@ -10,6 +10,7 @@ public class NormalEnemyHitDetection : MonoBehaviour
     [SerializeField] private GameObject player;
     private bool safeGuard = true;
     [SerializeField] private float forceAmount;
+    [SerializeField] private GameObject restartSound;
 
     private void Start()
     {
@@ -20,6 +21,7 @@ public class NormalEnemyHitDetection : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            Instantiate(restartSound, transform.position, transform.rotation);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }

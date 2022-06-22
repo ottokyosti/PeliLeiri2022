@@ -14,6 +14,7 @@ public class Hook : MonoBehaviour
 
     public bool attached = false;
     public bool enemy = false;
+    [SerializeField] private GameObject clickSound;
 
     // Start is called before the first frame update
     void Start()
@@ -37,11 +38,13 @@ public class Hook : MonoBehaviour
         if(col.gameObject.tag == "can_grapple")
         {
             rigidBody.bodyType = RigidbodyType2D.Static;
+            Instantiate(clickSound, transform.position, transform.rotation);
             attached = true;
         }
         else if(col.gameObject.tag == "enemy")
         {
             rigidBody.bodyType = RigidbodyType2D.Static;
+            Instantiate(clickSound, transform.position, transform.rotation);
             enemy = true;
         }
     }

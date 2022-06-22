@@ -5,6 +5,8 @@ using UnityEngine;
 public class Goal : MonoBehaviour
 {
     [SerializeField] private GameObject endOfLevelMenu;
+    [SerializeField] private GameObject victorySound;
+    [SerializeField] private GameObject timer;
 
     private void Start()
     {
@@ -16,6 +18,8 @@ public class Goal : MonoBehaviour
         if(col.gameObject.tag == "Player")
         {
             Time.timeScale = 0;
+            Destroy(timer);
+            Instantiate(victorySound, transform.position, transform.rotation);
             endOfLevelMenu.SetActive(true);
         }
     }

@@ -19,11 +19,13 @@ public class Grapple : MonoBehaviour
     private Rigidbody2D rigidBody;
 
     private bool facingLeft = true;
+    private AudioSource audioSource;
 
 
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -62,9 +64,11 @@ public class Grapple : MonoBehaviour
 
     private void PullPlayer()
     {
+        GetComponent<SpriteRenderer>().sprite = GetComponent<Player>().sprites[1];
         rigidBody.velocity = Vector3.zero;
         rigidBody.angularVelocity = 0;
         rigidBody.AddForce((grappleHook.transform.position - transform.position).normalized * 600);
+        audioSource.Play();
         Debug.Log((grappleHook.transform.position - transform.position).normalized);
         if((grappleHook.transform.position - transform.position).normalized.x < 0 && !facingLeft)
         {

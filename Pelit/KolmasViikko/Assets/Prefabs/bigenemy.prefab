@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7772584046532193029}
   - component: {fileID: 8067791302490114894}
   - component: {fileID: 8149975888144186723}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bigenemy
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -146,3 +146,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceAmount: 0
   player: {fileID: 0}
+  restartSound: {fileID: 6070762996885644205, guid: de1671093f9eb6c40a5296199ca7dd62, type: 3}

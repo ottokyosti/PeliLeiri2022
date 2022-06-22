@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -7906158513539030344}
   - component: {fileID: 573158280829579331}
   - component: {fileID: 8569712149917300163}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: vihollinen
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -114,6 +114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   forceAmount: 150
+  restartSound: {fileID: 6070762996885644205, guid: de1671093f9eb6c40a5296199ca7dd62, type: 3}
 --- !u!61 &573158280829579331
 BoxCollider2D:
   m_ObjectHideFlags: 0

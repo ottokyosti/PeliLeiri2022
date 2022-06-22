@@ -9,6 +9,7 @@ public class BigEnemy : MonoBehaviour
     private bool canTug;
     [SerializeField] private float forceAmount;
     [SerializeField] private GameObject player;
+    [SerializeField] private GameObject restartSound;
 
     private void Start()
     {
@@ -19,10 +20,11 @@ public class BigEnemy : MonoBehaviour
     {        
         if (col.gameObject.tag == "Player")
         {
+            Instantiate(restartSound, transform.position, transform.rotation);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
-    
+
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.tag == "hook")
@@ -31,14 +33,9 @@ public class BigEnemy : MonoBehaviour
         }
     }
 
-    /*private void OnCollisionExit2D(Collision2D col)
-    {
-        canTug = false;
-    }*/
-
     private void Update()
     {
-        if (Input.GetMouseButtonDown(1) && canTug)
+        if (Input.GetMouseButtonUp(0) && canTug)
         {
             if (player.transform.position.x > transform.position.x)
             {

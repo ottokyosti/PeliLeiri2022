@@ -11,6 +11,8 @@ public class MeleeAttack : MonoBehaviour
     [SerializeField]
     private float attackDuration = 0.3f;
     private float attackDurationtemp;
+    [SerializeField] private GameObject explosion;
+    [SerializeField] private GameObject explosionSound;
 
     void Start()
     {
@@ -43,6 +45,8 @@ public class MeleeAttack : MonoBehaviour
     {
         if (col.gameObject.tag == "enemy")
         {
+            Instantiate(explosion, col.gameObject.transform.position, col.gameObject.transform.rotation);
+            Instantiate(explosionSound, col.gameObject.transform.position, col.gameObject.transform.rotation);
             Destroy(col.gameObject);
         }
     }
