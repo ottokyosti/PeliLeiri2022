@@ -21,8 +21,6 @@ public class Hook : MonoBehaviour
         playerChar = transform.parent.Find("playerChar").gameObject;
         direction = ((Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition)) - (Vector2)transform.position);
         rigidBody = GetComponent<Rigidbody2D>();
-        Debug.Log(direction);
-        Debug.Log(direction.normalized);
         rigidBody.AddForce(direction.normalized * 2000);
         line = GetComponent<LineRenderer>();
     }

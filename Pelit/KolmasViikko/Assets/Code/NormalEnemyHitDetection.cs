@@ -44,7 +44,7 @@ public class NormalEnemyHitDetection : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(1) && canTug)
+        if (Input.GetMouseButtonUp(0) && canTug)
         {
             safeGuard = false;
             rb.AddForce((player.transform.position - transform.position) * forceAmount);

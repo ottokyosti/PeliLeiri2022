@@ -18,6 +18,8 @@ public class Grapple : MonoBehaviour
 
     private Rigidbody2D rigidBody;
 
+    private bool facingLeft = false;
+
 
     void Start()
     {
@@ -28,35 +30,27 @@ public class Grapple : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            ShootGrapple();
+            if(grappleIns == null)
+            {
+                ShootGrapple();
+            }
         }
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonUp(0))
         {
-            if (Input.GetMouseButtonDown(1) && grappleHook.GetComponent<Hook>().attached && can_grapple)
+            if (grappleHook.GetComponent<Hook>().attached && can_grapple)
             {
                 PullPlayer();
-                StartCoroutine(Cooldown());
+                this.transform.parent = null;
+                Destroy(grappleIns);
+                can_grapple = true;
             }
-            else if (Input.GetMouseButtonDown(1) && grappleHook.GetComponent<Hook>().enemy && can_grapple)
+            else
             {
                 this.transform.parent = null;
                 Destroy(grappleIns, 0.01f);
                 can_grapple = true;
             }
         }
-        else if (!Input.GetMouseButton(0))
-        {
-            this.transform.parent = null;
-            Destroy(grappleIns);
-            can_grapple = true;
-        }
-    }
-
-    IEnumerator Cooldown()
-    {
-        can_grapple = false;
-        yield return new WaitForSeconds(grappleCooldown);
-        can_grapple = true;
     }
 
     private void ShootGrapple()
@@ -71,5 +65,20 @@ public class Grapple : MonoBehaviour
         rigidBody.velocity = Vector3.zero;
         rigidBody.angularVelocity = 0;
         rigidBody.AddForce((grappleHook.transform.position - transform.position).normalized * 600);
+        Debug.Log((grappleHook.transform.position - transform.position).normalized);
+        if((grappleHook.transform.position - transform.position).normalized.x < 0 && !facingLeft)
+        {
+            Vector3 newScale = gameObject.transform.localScale;
+            newScale.x *= -1;
+            gameObject.transform.localScale = newScale;
+            facingLeft = true;
+        }
+        else if((grappleHook.transform.position - transform.position).normalized.x > 0 && facingLeft)
+        {
+            Vector3 newScale = gameObject.transform.localScale;
+            newScale.x *= -1;
+            gameObject.transform.localScale = newScale;
+            facingLeft = false;
+        }
     }
 }
