@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 352455309337685489}
   - component: {fileID: 1664138651979209089}
   - component: {fileID: 8374350115253657332}
+  - component: {fileID: 4566266118259736530}
   m_Layer: 0
   m_Name: attack
   m_TagString: Untagged
@@ -94,7 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitbox: {fileID: 352455309337685489}
-  attackDuration: 0.3
+  attackDuration: 0.18
 --- !u!212 &8374350115253657332
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -146,6 +147,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &4566266118259736530
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359023339584330830}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5cdf06da72e6aac4393137c3516728cb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5341157476674458316
 GameObject:
   m_ObjectHideFlags: 0
