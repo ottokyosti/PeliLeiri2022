@@ -18,7 +18,7 @@ public class Grapple : MonoBehaviour
 
     private Rigidbody2D rigidBody;
 
-    private bool facingLeft = false;
+    private bool facingLeft = true;
 
 
     void Start()

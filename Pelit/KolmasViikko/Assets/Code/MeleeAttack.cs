@@ -26,7 +26,6 @@ public class MeleeAttack : MonoBehaviour
             {
                 attacking = false;
                 hitbox.enabled = false;
-                GetComponent<SpriteRenderer>().enabled = false;
                 GetComponent<Animator>().SetBool("attack", false);
                 attackDurationtemp = attackDuration;
             }
@@ -36,7 +35,6 @@ public class MeleeAttack : MonoBehaviour
             Debug.Log("swing");
             attacking = true;
             hitbox.enabled = true;
-            GetComponent<SpriteRenderer>().enabled = true;
             GetComponent<Animator>().SetBool("attack", true);
         }
     }
