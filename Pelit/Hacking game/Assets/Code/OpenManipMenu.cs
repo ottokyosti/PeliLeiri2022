@@ -13,7 +13,11 @@ public class OpenManipMenu : MonoBehaviour, IPointerDownHandler
     {
         if(spawnedMenu == null)
         {
-            spawnedMenu = Instantiate(menu, new Vector3(transform.position.x, transform.position.y + 2, 0), transform.rotation);
+            spawnedMenu = Instantiate(menu, new Vector3(transform.position.x, transform.position.y + 2, 0), transform.rotation, transform);
+        }
+        else if(spawnedMenu != null)
+        {
+            Destroy(spawnedMenu);
         }
     }
 }
