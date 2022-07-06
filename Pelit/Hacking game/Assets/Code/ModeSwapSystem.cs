@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class ModeSwapSystem : MonoBehaviour
 {
-    private bool inManip = false;
+    public bool inManip = false;
 
-    private enum AppliedManip { none, first, second, third, fourth };
+    public enum AppliedManip { none, first, second, third, fourth };
 
-    private AppliedManip CurrentManip = AppliedManip.none;
+    public AppliedManip CurrentManip = AppliedManip.none;
 
     [SerializeField]
     private GameObject ManipUI;
