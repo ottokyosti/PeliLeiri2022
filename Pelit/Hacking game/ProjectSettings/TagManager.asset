@@ -6,6 +6,7 @@ TagManager:
   tags:
   - gravityButton
   - forceButton
+  - floor
   layers:
   - Default
   - TransparentFX
