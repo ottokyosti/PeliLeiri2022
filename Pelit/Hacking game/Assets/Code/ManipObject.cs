@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ManipObject : MonoBehaviour
 {
@@ -90,7 +91,7 @@ public class ManipObject : MonoBehaviour
     private IEnumerator Shrink()
     {
         Vector3 startScale = transform.localScale;
-        Vector3 targetScale = new Vector3(0.5f, 0.5f, 0.5f);
+        Vector3 targetScale = new Vector3(0.5f * startScale.x, 0.5f * startScale.y, 0.5f * startScale.z);
         float timer = 0;
         while (timer < 1)
         {
@@ -107,7 +108,7 @@ public class ManipObject : MonoBehaviour
     private IEnumerator Grow()
     {
         Vector3 startScale = transform.localScale;
-        Vector3 targetScale = new Vector3(1, 1, 1);
+        Vector3 targetScale = new Vector3(scale.x,scale.y,scale.z);
         float timer = 0;
         while (timer < 1)
         {
@@ -118,5 +119,11 @@ public class ManipObject : MonoBehaviour
             yield return null;
         }
         yield return null;
+    }
+
+    //temporary for test level delete this shit asap ok
+    void OnBecameInvisible()
+    {
+        SceneManager.LoadScene(2);
     }
 }
