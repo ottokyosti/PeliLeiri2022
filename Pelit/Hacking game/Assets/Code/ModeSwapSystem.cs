@@ -13,6 +13,18 @@ public class ModeSwapSystem : MonoBehaviour
     [SerializeField]
     private GameObject ManipUI;
 
+    [SerializeField]
+    private GameObject bg1;
+
+    [SerializeField]
+    private GameObject bg2;
+
+    [SerializeField]
+    private GameObject bg3;
+
+    [SerializeField]
+    private GameObject bg4;
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab))
@@ -22,18 +34,34 @@ public class ModeSwapSystem : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1) && inManip)
         {
             ManipMode(1);
+            bg1.SetActive(true);
+            bg2.SetActive(false);
+            bg3.SetActive(false);
+            bg4.SetActive(false);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2) && inManip)
         {
             ManipMode(2);
+            bg2.SetActive(true);
+            bg1.SetActive(false);
+            bg3.SetActive(false);
+            bg4.SetActive(false);
         }
         if (Input.GetKeyDown(KeyCode.Alpha3) && inManip)
         {
             ManipMode(3);
+            bg3.SetActive(true);
+            bg2.SetActive(false);
+            bg1.SetActive(false);
+            bg4.SetActive(false);
         }
         if (Input.GetKeyDown(KeyCode.Alpha4) && inManip)
         {
             ManipMode(4);
+            bg4.SetActive(true);
+            bg2.SetActive(false);
+            bg3.SetActive(false);
+            bg1.SetActive(false);
         }
     }
 

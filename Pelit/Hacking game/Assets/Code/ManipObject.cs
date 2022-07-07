@@ -10,6 +10,7 @@ public class ManipObject : MonoBehaviour
     private bool shrunk = false;
     private Vector3 scale;
     private ModeSwapSystem modeSwapSystem;
+    private bool manipPerformed = false;
 
     void Start()
     {
@@ -18,17 +19,27 @@ public class ManipObject : MonoBehaviour
         modeSwapSystem = FindObjectOfType<ModeSwapSystem>();
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab) && modeSwapSystem.inManip)
+        {
+            manipPerformed = false;
+        }
+    }
+
     void OnMouseDown()
     {
-        if (modeSwapSystem.inManip)
+        if (modeSwapSystem.inManip && !manipPerformed)
         {
             if(modeSwapSystem.CurrentManip == ModeSwapSystem.AppliedManip.first)
             {
                 FlipGravity();
+                manipPerformed = true;
             }
             else if(modeSwapSystem.CurrentManip == ModeSwapSystem.AppliedManip.second)
             {
                 ForceAdd();
+                manipPerformed = true;
             }
             else if(modeSwapSystem.CurrentManip == ModeSwapSystem.AppliedManip.third)
             {
@@ -42,12 +53,19 @@ public class ManipObject : MonoBehaviour
                     shrunk = false;
                     StartCoroutine(Grow());
                 }
+                manipPerformed = true;
             }
             else if(modeSwapSystem.CurrentManip == ModeSwapSystem.AppliedManip.fourth)
             {
-                
+                StopMovement();
+                manipPerformed = true;
             }
         }
+    }
+
+    private void StopMovement()
+    {
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
 
     private void FlipGravity()
