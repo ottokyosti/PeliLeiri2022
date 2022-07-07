@@ -39,10 +39,15 @@ public class ManipObject : MonoBehaviour
             }
             else if(modeSwapSystem.CurrentManip == ModeSwapSystem.AppliedManip.second)
             {
-                ForceAdd();
+                ForceAdd(true);
                 manipPerformed = true;
             }
             else if(modeSwapSystem.CurrentManip == ModeSwapSystem.AppliedManip.third)
+            {
+                ForceAdd(false);
+                manipPerformed = true;
+            }
+            else if(modeSwapSystem.CurrentManip == ModeSwapSystem.AppliedManip.fourth)
             {
                 if (!shrunk)
                 {
@@ -56,17 +61,7 @@ public class ManipObject : MonoBehaviour
                 }
                 manipPerformed = true;
             }
-            else if(modeSwapSystem.CurrentManip == ModeSwapSystem.AppliedManip.fourth)
-            {
-                StopMovement();
-                manipPerformed = true;
-            }
         }
-    }
-
-    private void StopMovement()
-    {
-        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
 
     private void FlipGravity()
@@ -74,9 +69,9 @@ public class ManipObject : MonoBehaviour
         GetComponent<Rigidbody2D>().gravityScale *= -1;
     }
 
-    private void ForceAdd()
+    private void ForceAdd(bool forward)
     {
-        if(player.transform.position.x <= gameObject.transform.position.x)
+        if(forward)
         {
             Debug.Log("forward");
             GetComponent<Rigidbody2D>().AddForce(new Vector3(1,0,0) * force);
