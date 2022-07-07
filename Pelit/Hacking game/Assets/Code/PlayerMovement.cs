@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         CheckPlayerInput();
-        Debug.Log(rb2D.velocity.magnitude);
+        //Debug.Log(rb2D.velocity.magnitude);
     }
 
     private void FixedUpdate()
