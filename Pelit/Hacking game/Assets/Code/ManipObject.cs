@@ -119,6 +119,6 @@ public class ManipObject : MonoBehaviour
     //temporary for test level delete this shit asap ok
     void OnBecameInvisible()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
     }
 }

@@ -7,10 +7,11 @@ public class Goal : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D col)
     {
+        Debug.Log("hi");
         if (col.gameObject.tag == "Player")
         {
             //temp
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene(2);
         }
     }
 }
