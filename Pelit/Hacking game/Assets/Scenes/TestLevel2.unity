@@ -1020,7 +1020,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2905134565626303698, guid: 496097e28d6911f4aa4f65a8c49830e8, type: 3}
       propertyPath: m_Name
-      value: Square (7)
+      value: Goal
       objectReference: {fileID: 0}
     - target: {fileID: 2905134565626303726, guid: 496097e28d6911f4aa4f65a8c49830e8, type: 3}
       propertyPath: m_RootOrder

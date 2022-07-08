@@ -115,10 +115,4 @@ public class ManipObject : MonoBehaviour
         }
         yield return null;
     }
-
-    //temporary for test level delete this shit asap ok
-    void OnBecameInvisible()
-    {
-        SceneManager.LoadScene(1);
-    }
 }
