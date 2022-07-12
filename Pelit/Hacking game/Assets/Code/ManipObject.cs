@@ -12,12 +12,29 @@ public class ManipObject : MonoBehaviour
     private Vector3 scale;
     private ModeSwapSystem modeSwapSystem;
     private bool manipPerformed = false;
+    [SerializeField]
+    private GameObject crushBelow;
+    [SerializeField]
+    private GameObject crushAbove;
 
     void Start()
     {
         scale = transform.localScale;
         player = GameObject.FindGameObjectWithTag("Player");
         modeSwapSystem = FindObjectOfType<ModeSwapSystem>();
+        if (crushBelow != null && crushAbove != null)
+        {
+            if (GetComponent<Rigidbody2D>().gravityScale > 0)
+            {
+                crushBelow.SetActive(true);
+                crushAbove.SetActive(false);
+            }
+            else if (GetComponent<Rigidbody2D>().gravityScale < 0)
+            {
+                crushAbove.SetActive(true);
+                crushBelow.SetActive(false);
+            }
+        }
     }
 
     void Update()
@@ -32,22 +49,22 @@ public class ManipObject : MonoBehaviour
     {
         if (modeSwapSystem.inManip && !manipPerformed)
         {
-            if(modeSwapSystem.CurrentManip == ModeSwapSystem.AppliedManip.first)
+            if (modeSwapSystem.CurrentManip == ModeSwapSystem.AppliedManip.first)
             {
                 FlipGravity();
                 manipPerformed = true;
             }
-            else if(modeSwapSystem.CurrentManip == ModeSwapSystem.AppliedManip.second)
+            else if (modeSwapSystem.CurrentManip == ModeSwapSystem.AppliedManip.second)
             {
                 ForceAdd(true);
                 manipPerformed = true;
             }
-            else if(modeSwapSystem.CurrentManip == ModeSwapSystem.AppliedManip.third)
+            else if (modeSwapSystem.CurrentManip == ModeSwapSystem.AppliedManip.third)
             {
                 ForceAdd(false);
                 manipPerformed = true;
             }
-            else if(modeSwapSystem.CurrentManip == ModeSwapSystem.AppliedManip.fourth)
+            else if (modeSwapSystem.CurrentManip == ModeSwapSystem.AppliedManip.fourth)
             {
                 if (!shrunk)
                 {
@@ -71,15 +88,15 @@ public class ManipObject : MonoBehaviour
 
     private void ForceAdd(bool forward)
     {
-        if(forward)
+        if (forward)
         {
             Debug.Log("forward");
-            GetComponent<Rigidbody2D>().AddForce(new Vector3(1,0,0) * force);
+            GetComponent<Rigidbody2D>().AddForce(new Vector3(1, 0, 0) * force);
         }
         else
         {
             Debug.Log("back");
-            GetComponent<Rigidbody2D>().AddForce(new Vector3(-1,0,0) * force);   
+            GetComponent<Rigidbody2D>().AddForce(new Vector3(-1, 0, 0) * force);
         }
     }
 
@@ -103,7 +120,7 @@ public class ManipObject : MonoBehaviour
     private IEnumerator Grow()
     {
         Vector3 startScale = transform.localScale;
-        Vector3 targetScale = new Vector3(scale.x,scale.y,scale.z);
+        Vector3 targetScale = new Vector3(scale.x, scale.y, scale.z);
         float timer = 0;
         while (timer < 1)
         {

@@ -7,6 +7,7 @@ TagManager:
   - gravityButton
   - forceButton
   - floor
+  - Enemy
   layers:
   - Default
   - TransparentFX
