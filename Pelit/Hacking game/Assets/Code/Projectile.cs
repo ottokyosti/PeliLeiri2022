@@ -39,5 +39,9 @@ public class Projectile : MonoBehaviour
             Destroy(col.gameObject);
             Destroy(this.gameObject);
         }
+        else if (col.gameObject.tag == "floor")
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

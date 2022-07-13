@@ -8,6 +8,7 @@ public class ManipObject : MonoBehaviour
     private GameObject player;
     [SerializeField]
     private float force = 50;
+    [SerializeField]
     private bool shrunk = false;
     private Vector3 scale;
     private ModeSwapSystem modeSwapSystem;
