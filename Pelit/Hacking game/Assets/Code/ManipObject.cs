@@ -85,6 +85,19 @@ public class ManipObject : MonoBehaviour
     private void FlipGravity()
     {
         GetComponent<Rigidbody2D>().gravityScale *= -1;
+        if (crushBelow != null && crushAbove != null)
+        {
+            if (GetComponent<Rigidbody2D>().gravityScale > 0)
+            {
+                crushBelow.SetActive(true);
+                crushAbove.SetActive(false);
+            }
+            else if (GetComponent<Rigidbody2D>().gravityScale < 0)
+            {
+                crushAbove.SetActive(true);
+                crushBelow.SetActive(false);
+            }
+        }
     }
 
     private void ForceAdd(bool forward)
