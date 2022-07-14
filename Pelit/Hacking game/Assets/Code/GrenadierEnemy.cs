@@ -2,19 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShootingEnemyFOV : MonoBehaviour
+public class GrenadierEnemy : MonoBehaviour
 {
     [SerializeField] private float radius;
 
-    private Vector2 directionToTarget;
+    private Vector2 spawnPlace;
 
     [SerializeField] private LayerMask targetLayer;
 
-    [SerializeField] private LayerMask obstacleLayer;
-
     private GameObject playerRef;
 
-    private bool canSeePlayer;
+    private bool playerInRange;
 
     [SerializeField] private float fireDelay;
         
@@ -30,21 +28,23 @@ public class ShootingEnemyFOV : MonoBehaviour
 
     private void Update()
     {
-        if (canSeePlayer)
+        if (playerInRange)
         {
             if (playerRef.transform.position.x < transform.position.x)
             {   
                 transform.localScale = new Vector2(Mathf.Abs(transform.localScale.x), transform.localScale.x);
+                spawnPlace = Vector2.left;
             }
             else if (playerRef.transform.position.x > transform.position.x)
             {
                 transform.localScale = new Vector2(-(Mathf.Abs(transform.localScale.x)), transform.localScale.y);
+                spawnPlace = Vector2.right;
             }
 
             if (timeBtwShots <= 0)
             {
-                var tempProjectile = Instantiate(projectile, (Vector2) transform.position + directionToTarget, Quaternion.identity);
-                tempProjectile.GetComponent<Projectile>()._direction = directionToTarget;
+                var tempProjectile = Instantiate(projectile, (Vector2) transform.position + spawnPlace, Quaternion.identity);
+                tempProjectile.GetComponent<ArcingProjectile>()._targetPos = playerRef.transform.position;
                 timeBtwShots = fireDelay;
             }
             else
@@ -71,22 +71,11 @@ public class ShootingEnemyFOV : MonoBehaviour
 
         if (rangeCheck.Length > 0)
         {
-            Transform target = rangeCheck[0].transform;
-            directionToTarget = (target.position - transform.position).normalized;
-            float distanceToTarget = Vector2.Distance(transform.position, target.position);
-
-            if (!(Physics2D.Raycast(transform.position, directionToTarget, distanceToTarget, obstacleLayer)))
-            {
-                canSeePlayer = true;
-            }
-            else 
-            {
-                canSeePlayer = false;
-            }
+            playerInRange = true;
         }
-        else if (canSeePlayer)
+        else if (playerInRange)
         {
-            canSeePlayer = false;
+            playerInRange = false;
         }
     }
 
@@ -95,7 +84,7 @@ public class ShootingEnemyFOV : MonoBehaviour
         Gizmos.color = Color.black;
         UnityEditor.Handles.DrawWireDisc(transform.position, Vector3.forward, radius);
 
-        if (canSeePlayer)
+        if (playerInRange)
         {
             Gizmos.color = Color.green;
             Gizmos.DrawLine(transform.position, playerRef.transform.position);
