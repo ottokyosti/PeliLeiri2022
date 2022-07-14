@@ -10,7 +10,7 @@ public class Goal : MonoBehaviour
         if (col.gameObject.tag == "Player")
         {
             //temp
-            SceneManager.LoadScene("FinalTest");
+            SceneManager.LoadScene(0);
         }
     }
 }
