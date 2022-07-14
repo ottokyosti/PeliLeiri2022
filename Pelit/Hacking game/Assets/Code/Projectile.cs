@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Projectile : MonoBehaviour
 {
-    private Vector3 direction;
-    public Vector3 _direction
+    private Vector2 direction;
+    public Vector2 _direction
     {
         get { return direction; }
         set { direction = value; }
@@ -30,7 +30,7 @@ public class Projectile : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.Translate(direction.normalized * speed * Time.deltaTime);
+        transform.Translate(direction * speed * Time.deltaTime);
     }
 
     private void OnCollisionEnter2D(Collision2D col)
@@ -41,7 +41,7 @@ public class Projectile : MonoBehaviour
             Destroy(this.gameObject);
             SceneManager.LoadScene(0);
         }
-        else if (col.gameObject.tag == "floor")
+        else if (col.gameObject.layer == 7)
         {
             Destroy(this.gameObject);
         }

@@ -454,7 +454,7 @@ GameObject:
   - component: {fileID: 856412557}
   - component: {fileID: 856412556}
   - component: {fileID: 856412555}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Capsule
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -846,6 +846,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 926836158931913139, guid: fc42b9a43669a494eafab141ad492d18, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4928899516197398096, guid: fc42b9a43669a494eafab141ad492d18, type: 3}
+      propertyPath: playerRef
+      value: 
+      objectReference: {fileID: 856412551}
     - target: {fileID: 5643437379542674645, guid: fc42b9a43669a494eafab141ad492d18, type: 3}
       propertyPath: m_RootOrder
       value: 7
