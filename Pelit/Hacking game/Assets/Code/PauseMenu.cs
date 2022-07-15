@@ -11,7 +11,7 @@ public class PauseMenu : MonoBehaviour
 
     private void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
+        //DontDestroyOnLoad(this.gameObject);
     }
 
     private void Update()
@@ -46,6 +46,10 @@ public class PauseMenu : MonoBehaviour
 
     public void Mainmenu()
     {
-        //Scenemanager.LoadScene(0);
+        Time.timeScale = 1;
+        canvas.SetActive(false);
+        spamInhibitor = false;
+        StartCoroutine(WaitTime());
+        SceneManager.LoadScene(0);
     }
 }

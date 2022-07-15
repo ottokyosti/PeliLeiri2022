@@ -64,11 +64,6 @@ public class ModeSwapSystem : MonoBehaviour
             bg3.SetActive(false);
             bg1.SetActive(false);
         }
-        //temporary
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
     }
 
     private void SwapMode()
