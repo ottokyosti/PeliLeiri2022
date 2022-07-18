@@ -11,10 +11,12 @@ public class PlayerMovement : MonoBehaviour
     private float moveVertical;
     private float moveHorizontal;
     private float maxHorizontalVelocity;
+    private Animator animator;
     
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
         rb2D = GetComponent<Rigidbody2D>();
         maxHorizontalVelocity = 7.7f;
     }
@@ -39,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
             //rb2D.velocity = Vector2.zero;
             rb2D.AddForce(new Vector2(moveHorizontal * moveVelocity, 0f), ForceMode2D.Impulse);
             scale.x = Mathf.Abs(scale.x);
+            animator.SetBool("walking", true);
         }
 
         if (moveHorizontal < -0.1f)
@@ -46,6 +49,12 @@ public class PlayerMovement : MonoBehaviour
             //rb2D.velocity = Vector2.zero;
             rb2D.AddForce(new Vector2(moveHorizontal * moveVelocity, 0f), ForceMode2D.Impulse);
             scale.x = -(Mathf.Abs(scale.x));
+            animator.SetBool("walking", true);
+        }
+
+        if (moveHorizontal == 0)
+        {
+            animator.SetBool("walking", false);
         }
 
         if (moveVertical > 0.1f && !(isJumping))

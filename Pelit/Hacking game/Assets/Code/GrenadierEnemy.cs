@@ -82,7 +82,7 @@ public class GrenadierEnemy : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.black;
-        UnityEditor.Handles.DrawWireDisc(transform.position, Vector3.forward, radius);
+        //UnityEditor.Handles.DrawWireDisc(transform.position, Vector3.forward, radius);
 
         if (playerInRange)
         {

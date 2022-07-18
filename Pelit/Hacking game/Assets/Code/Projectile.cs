@@ -41,6 +41,10 @@ public class Projectile : MonoBehaviour
             Destroy(this.gameObject);
             SceneManager.LoadScene(0);
         }
+        if (col.gameObject.tag == "floor")
+        {
+            Destroy(this.gameObject);
+        }
         else if (col.gameObject.layer == 7)
         {
             Destroy(this.gameObject);
