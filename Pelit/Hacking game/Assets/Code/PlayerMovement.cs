@@ -31,7 +31,6 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         CheckPlayerInput();
-        //Debug.Log(rb2D.velocity.magnitude);
         if (Input.GetKeyDown(KeyCode.E))
         {
             TextWriter.codeText.WriteText("gameObject.transform.right;");
@@ -49,7 +48,6 @@ public class PlayerMovement : MonoBehaviour
         
         if (moveHorizontal > 0.1f)
         {
-            //rb2D.velocity = Vector2.zero;
             rb2D.AddForce(new Vector2(moveHorizontal * moveVelocity, 0f), ForceMode2D.Impulse);
             scale.x = Mathf.Abs(scale.x);
             animator.SetBool("walking", true);
@@ -57,7 +55,6 @@ public class PlayerMovement : MonoBehaviour
 
         if (moveHorizontal < -0.1f)
         {
-            //rb2D.velocity = Vector2.zero;
             rb2D.AddForce(new Vector2(moveHorizontal * moveVelocity, 0f), ForceMode2D.Impulse);
             scale.x = -(Mathf.Abs(scale.x));
             animator.SetBool("walking", true);
