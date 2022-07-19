@@ -11,12 +11,21 @@ public class PlayerMovement : MonoBehaviour
     private float moveVertical;
     private float moveHorizontal;
     private float maxHorizontalVelocity;
+    private Animator animator;
+    private CheckpointSystem checkpointSystem;
     
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
         rb2D = GetComponent<Rigidbody2D>();
         maxHorizontalVelocity = 7.7f;
+        checkpointSystem = FindObjectOfType<CheckpointSystem>();
+        if (checkpointSystem.currentCP != 0)
+        {
+            transform.position = checkpointSystem.checkpoints[checkpointSystem.currentCP - 1].transform.position;
+            FindObjectOfType<CameraMovement>().gameObject.transform.position = new Vector3(transform.position.x, 2, -10);
+        }
     }
 
     private void Update()
@@ -43,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
             //rb2D.velocity = Vector2.zero;
             rb2D.AddForce(new Vector2(moveHorizontal * moveVelocity, 0f), ForceMode2D.Impulse);
             scale.x = Mathf.Abs(scale.x);
+            animator.SetBool("walking", true);
         }
 
         if (moveHorizontal < -0.1f)
@@ -50,6 +60,12 @@ public class PlayerMovement : MonoBehaviour
             //rb2D.velocity = Vector2.zero;
             rb2D.AddForce(new Vector2(moveHorizontal * moveVelocity, 0f), ForceMode2D.Impulse);
             scale.x = -(Mathf.Abs(scale.x));
+            animator.SetBool("walking", true);
+        }
+
+        if (moveHorizontal == 0)
+        {
+            animator.SetBool("walking", false);
         }
 
         if (moveVertical > 0.1f && !(isJumping))

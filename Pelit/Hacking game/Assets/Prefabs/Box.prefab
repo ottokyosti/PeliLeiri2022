@@ -197,6 +197,7 @@ GameObject:
   - component: {fileID: 4070006925964354728}
   - component: {fileID: 4070006925964354727}
   - component: {fileID: 4070006925964354732}
+  - component: {fileID: 4432049079370769494}
   m_Layer: 0
   m_Name: Box
   m_TagString: floor
@@ -334,3 +335,17 @@ MonoBehaviour:
   shrunk: 0
   crushBelow: {fileID: 3827961316918947450}
   crushAbove: {fileID: 275177212669421806}
+--- !u!114 &4432049079370769494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4070006925964354726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac7a4535d86b71746add652073b92d04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteStandard: {fileID: 21300000, guid: 8f2b46f0e81025b4d92d91e896a6c1bd, type: 3}
+  spriteManip: {fileID: 21300000, guid: f847f5c3bff98204ba30d2f8bfd32146, type: 3}
