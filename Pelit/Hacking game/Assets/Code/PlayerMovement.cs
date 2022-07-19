@@ -23,6 +23,10 @@ public class PlayerMovement : MonoBehaviour
     {
         CheckPlayerInput();
         //Debug.Log(rb2D.velocity.magnitude);
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            TextWriter.codeText.WriteText("gameObject.transform.right;");
+        }
     }
 
     private void FixedUpdate()

@@ -6,8 +6,6 @@ public class GrenadierEnemy : MonoBehaviour
 {
     [SerializeField] private float radius;
 
-    private Vector2 spawnPlace;
-
     [SerializeField] private LayerMask targetLayer;
 
     private GameObject playerRef;
@@ -33,17 +31,15 @@ public class GrenadierEnemy : MonoBehaviour
             if (playerRef.transform.position.x < transform.position.x)
             {   
                 transform.localScale = new Vector2(Mathf.Abs(transform.localScale.x), transform.localScale.x);
-                spawnPlace = Vector2.left;
             }
             else if (playerRef.transform.position.x > transform.position.x)
             {
                 transform.localScale = new Vector2(-(Mathf.Abs(transform.localScale.x)), transform.localScale.y);
-                spawnPlace = Vector2.right;
             }
 
             if (timeBtwShots <= 0)
             {
-                var tempProjectile = Instantiate(projectile, (Vector2) transform.position + spawnPlace, Quaternion.identity);
+                var tempProjectile = Instantiate(projectile, (Vector2) transform.position + Vector2.up, Quaternion.identity);
                 tempProjectile.GetComponent<ArcingProjectile>()._targetPos = playerRef.transform.position;
                 timeBtwShots = fireDelay;
             }

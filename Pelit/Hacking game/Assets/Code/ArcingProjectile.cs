@@ -17,13 +17,13 @@ public class ArcingProjectile : MonoBehaviour
 
     [SerializeField] private GameObject explosionSprite;
 
+    [SerializeField] private Sprite[] bombPhases;
+
     private Vector2 startPos;
 
     private CircleCollider2D circleCol;
 
     private bool canMove = true;
-
-    private float explosionTimer = 3f;
 
     private SpriteRenderer spriteRenderer;
 
@@ -35,7 +35,7 @@ public class ArcingProjectile : MonoBehaviour
         circleCol.enabled = false;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (canMove)
         {
@@ -53,6 +53,7 @@ public class ArcingProjectile : MonoBehaviour
             {
                 canMove = false;
                 circleCol.enabled = true;
+                spriteRenderer.sprite = bombPhases[0];
                 StartCoroutine(ExplosionStart());
             }
         }
@@ -62,9 +63,9 @@ public class ArcingProjectile : MonoBehaviour
     {
         WaitForSecondsRealtime wait = new WaitForSecondsRealtime(1f);
         yield return wait;
-        spriteRenderer.color = Color.yellow;
+        spriteRenderer.sprite = bombPhases[1];
         yield return wait;
-        spriteRenderer.color = Color.white;
+        spriteRenderer.sprite = bombPhases[2];
         yield return wait;
         Instantiate(explosionSprite, transform.position, transform.rotation);
         Destroy(this.gameObject);
