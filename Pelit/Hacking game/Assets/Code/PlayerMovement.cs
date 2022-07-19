@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private float moveHorizontal;
     private float maxHorizontalVelocity;
     private Animator animator;
+    private CheckpointSystem checkpointSystem;
     
 
     private void Start()
@@ -19,6 +20,12 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
         rb2D = GetComponent<Rigidbody2D>();
         maxHorizontalVelocity = 7.7f;
+        checkpointSystem = FindObjectOfType<CheckpointSystem>();
+        if (checkpointSystem.currentCP != 0)
+        {
+            transform.position = checkpointSystem.checkpoints[checkpointSystem.currentCP - 1].transform.position;
+            FindObjectOfType<CameraMovement>().gameObject.transform.position = new Vector3(transform.position.x, 2, -10);
+        }
     }
 
     private void Update()

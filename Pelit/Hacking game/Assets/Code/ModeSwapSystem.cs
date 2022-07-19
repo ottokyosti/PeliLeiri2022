@@ -79,7 +79,6 @@ public class ModeSwapSystem : MonoBehaviour
             ManipUI.SetActive(false);
         }
         inManip = !inManip;
-        Debug.Log(inManip);
     }
 
     private void ManipMode(int input)
@@ -99,6 +98,5 @@ public class ModeSwapSystem : MonoBehaviour
                 CurrentManip = AppliedManip.fourth;
                 break;
         }
-        Debug.Log(CurrentManip);
     }
 }
