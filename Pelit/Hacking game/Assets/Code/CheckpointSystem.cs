@@ -24,6 +24,5 @@ public class CheckpointSystem : MonoBehaviour
     public void ChangeCP(int checkpoint)
     {
         currentCP = checkpoint;
-        Debug.Log(currentCP);
     }
 }

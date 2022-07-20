@@ -18,8 +18,17 @@ public class ManipObject : MonoBehaviour
     [SerializeField]
     private GameObject crushAbove;
 
+    private GameObject gravityIcon;
+    private GameObject pushIcon;
+    private GameObject pullIcon;
+    private GameObject sizeIcon;
+
     void Start()
     {
+        gravityIcon = transform.Find("GravityIcon").gameObject;
+        pushIcon = transform.Find("PushIcon").gameObject;
+        pullIcon = transform.Find("PullIcon").gameObject;
+        sizeIcon = transform.Find("SizeIcon").gameObject;
         scale = transform.localScale;
         player = GameObject.FindGameObjectWithTag("Player");
         modeSwapSystem = FindObjectOfType<ModeSwapSystem>();
@@ -43,6 +52,10 @@ public class ManipObject : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab) && modeSwapSystem.inManip)
         {
             manipPerformed = false;
+            gravityIcon.SetActive(false);
+            pushIcon.SetActive(false);
+            pullIcon.SetActive(false);
+            sizeIcon.SetActive(false);
         }
     }
 
@@ -52,21 +65,25 @@ public class ManipObject : MonoBehaviour
         {
             if (modeSwapSystem.CurrentManip == ModeSwapSystem.AppliedManip.first)
             {
+                gravityIcon.SetActive(true);
                 FlipGravity();
                 manipPerformed = true;
             }
             else if (modeSwapSystem.CurrentManip == ModeSwapSystem.AppliedManip.second)
             {
+                pushIcon.SetActive(true);
                 ForceAdd(true);
                 manipPerformed = true;
             }
             else if (modeSwapSystem.CurrentManip == ModeSwapSystem.AppliedManip.third)
             {
+                pullIcon.SetActive(false);
                 ForceAdd(false);
                 manipPerformed = true;
             }
             else if (modeSwapSystem.CurrentManip == ModeSwapSystem.AppliedManip.fourth)
             {
+                sizeIcon.SetActive(true);
                 if (!shrunk)
                 {
                     shrunk = true;

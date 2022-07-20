@@ -33447,7 +33447,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6789434251606875974, guid: b8626cc32edd0794090070de83cf045d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.44
+      value: -3.466
       objectReference: {fileID: 0}
     - target: {fileID: 6789434251606875974, guid: b8626cc32edd0794090070de83cf045d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -35414,7 +35414,7 @@ Transform:
   - {fileID: 1331287510}
   - {fileID: 1458191561}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1488935554
 PrefabInstance:
@@ -36593,7 +36593,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6178426151896544950, guid: cb7996dd2fd8aa94a8518737876594c3, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6178426151896544950, guid: cb7996dd2fd8aa94a8518737876594c3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -36656,6 +36656,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 771266231}
     m_Modifications:
+    - target: {fileID: 4802590299299974463, guid: b8626cc32edd0794090070de83cf045d, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6789434251606875974, guid: b8626cc32edd0794090070de83cf045d, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -36666,7 +36670,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6789434251606875974, guid: b8626cc32edd0794090070de83cf045d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.4
+      value: -3.469
       objectReference: {fileID: 0}
     - target: {fileID: 6789434251606875974, guid: b8626cc32edd0794090070de83cf045d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -36703,6 +36707,10 @@ PrefabInstance:
     - target: {fileID: 6789434251606875992, guid: b8626cc32edd0794090070de83cf045d, type: 3}
       propertyPath: m_Name
       value: Checkpoint1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6789434251606875993, guid: b8626cc32edd0794090070de83cf045d, type: 3}
+      propertyPath: m_SortingOrder
+      value: 110
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8626cc32edd0794090070de83cf045d, type: 3}

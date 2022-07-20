@@ -17,12 +17,12 @@ public class Checkpoint : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("touch");
         if (!reached && col.gameObject.tag == "Player")
         {
-            Debug.Log("player touch");
             reached = true;
             system.ChangeCP(checkpointIndex);
+            GetComponent<Animator>().SetBool("Triggered", true);
         }
     }
+
 }
