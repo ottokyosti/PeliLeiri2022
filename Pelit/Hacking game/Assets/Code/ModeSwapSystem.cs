@@ -26,6 +26,8 @@ public class ModeSwapSystem : MonoBehaviour
     [SerializeField]
     private GameObject bg4;
 
+    [SerializeField] private GameObject codeText;
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab))
@@ -71,11 +73,13 @@ public class ModeSwapSystem : MonoBehaviour
         if (!inManip)
         {
             Time.timeScale = 0;
+            codeText.transform.position = Vector2.Lerp(codeText.transform.position, new Vector2(codeText.transform.position.x, codeText.transform.position.y + 100f), 2f);
             ManipUI.SetActive(true);
         }
         else if (inManip)
         {
             Time.timeScale = 1;
+            codeText.transform.position = Vector2.Lerp(codeText.transform.position, new Vector2(codeText.transform.position.x, codeText.transform.position.y - 100f), 2f);
             ManipUI.SetActive(false);
         }
         inManip = !inManip;

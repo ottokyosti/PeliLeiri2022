@@ -1107,7 +1107,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6832738881459075560, guid: e0adf3eabdd33fb4b8cf7b724adfd721, type: 3}
       propertyPath: m_Name
-      value: Canvas
+      value: CodeTextCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 6832738881459075572, guid: e0adf3eabdd33fb4b8cf7b724adfd721, type: 3}
       propertyPath: m_Pivot.x
@@ -1192,6 +1192,18 @@ PrefabInstance:
     - target: {fileID: 6832738881459075572, guid: e0adf3eabdd33fb4b8cf7b724adfd721, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6832738881725418449, guid: e0adf3eabdd33fb4b8cf7b724adfd721, type: 3}
+      propertyPath: m_margin.w
+      value: 8.096695
+      objectReference: {fileID: 0}
+    - target: {fileID: 6832738881725418449, guid: e0adf3eabdd33fb4b8cf7b724adfd721, type: 3}
+      propertyPath: m_margin.y
+      value: 4.0483837
+      objectReference: {fileID: 0}
+    - target: {fileID: 6832738881725418449, guid: e0adf3eabdd33fb4b8cf7b724adfd721, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 31.7
       objectReference: {fileID: 0}
     - target: {fileID: 6832738881725418454, guid: e0adf3eabdd33fb4b8cf7b724adfd721, type: 3}
       propertyPath: delay

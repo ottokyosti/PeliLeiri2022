@@ -101,6 +101,15 @@ public class ManipObject : MonoBehaviour
 
     private void FlipGravity()
     {
+        if (GetComponent<Rigidbody2D>().gravityScale > 0)
+        {
+            TextWriter.codeText.WriteText("Rigidbody2D.gravityScale = -1;");
+        }
+        else
+        {
+            TextWriter.codeText.WriteText("Rigidbody2D.gravityScale = 1;");
+        }
+
         GetComponent<Rigidbody2D>().gravityScale *= -1;
         if (crushBelow != null && crushAbove != null)
         {
@@ -122,11 +131,13 @@ public class ManipObject : MonoBehaviour
         if (forward)
         {
             Debug.Log("forward");
+            TextWriter.codeText.WriteText("Rigidbody2d.AddForce(10);");
             GetComponent<Rigidbody2D>().AddForce(new Vector3(1, 0, 0) * force);
         }
         else
         {
             Debug.Log("back");
+            TextWriter.codeText.WriteText("Rigidbody2d.AddForce(-10);");
             GetComponent<Rigidbody2D>().AddForce(new Vector3(-1, 0, 0) * force);
         }
     }

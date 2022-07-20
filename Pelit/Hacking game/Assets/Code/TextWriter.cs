@@ -10,8 +10,6 @@ public class TextWriter : MonoBehaviour
 
     [SerializeField] private float writeDelay;
 
-    [SerializeField] private float deleteDelay;
-
     private string text;
 
     private TMP_Text tmpText;
@@ -45,25 +43,12 @@ public class TextWriter : MonoBehaviour
         {
             text = text + textToWrite[i];
             tmpText.text = text + "_";
-            yield return new WaitForSeconds(writeDelay);
+            yield return new WaitForSecondsRealtime(writeDelay);
         }
         
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForFixedUpdate();
 
-        for (int i = 0; i < textToWrite.Length; i++)
-        {
-            text = "";
-            for (int j = 0; j < textToWrite.Length - i; j++)
-            {
-                text = text + textToWrite[j];
-            }
-            tmpText.text = text + "_";
-            yield return new WaitForSeconds(deleteDelay);
-
-            if (text.Length == 1)
-            {
-                tmpText.text = "_";
-            }
-        }
+        tmpText.text = "_";
+        text = "";
     }
 }

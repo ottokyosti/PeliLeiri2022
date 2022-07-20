@@ -108,6 +108,7 @@ MonoBehaviour:
   bg2: {fileID: 0}
   bg3: {fileID: 0}
   bg4: {fileID: 0}
+  codeText: {fileID: 6832738881459075560, guid: e0adf3eabdd33fb4b8cf7b724adfd721, type: 3}
 --- !u!50 &723511564553411415
 Rigidbody2D:
   serializedVersion: 4
