@@ -144,6 +144,7 @@ public class ManipObject : MonoBehaviour
 
     private IEnumerator Shrink()
     {
+        TextWriter.codeText.WriteText("gameObject.transform.localScale = 0.5f;");
         Vector3 startScale = transform.localScale;
         Vector3 targetScale = new Vector3(0.5f * startScale.x, 0.5f * startScale.y, 0.5f * startScale.z);
         float timer = 0;
@@ -161,6 +162,7 @@ public class ManipObject : MonoBehaviour
 
     private IEnumerator Grow()
     {
+        TextWriter.codeText.WriteText("gameObject.transform.localScale = 1f;");
         Vector3 startScale = transform.localScale;
         Vector3 targetScale = new Vector3(scale.x, scale.y, scale.z);
         float timer = 0;
