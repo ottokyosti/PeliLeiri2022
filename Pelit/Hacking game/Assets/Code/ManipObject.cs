@@ -77,7 +77,7 @@ public class ManipObject : MonoBehaviour
             }
             else if (modeSwapSystem.CurrentManip == ModeSwapSystem.AppliedManip.third)
             {
-                pullIcon.SetActive(false);
+                pullIcon.SetActive(true);
                 ForceAdd(false);
                 manipPerformed = true;
             }
