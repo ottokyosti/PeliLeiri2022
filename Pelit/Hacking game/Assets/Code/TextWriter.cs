@@ -26,7 +26,7 @@ public class TextWriter : MonoBehaviour
         }
 
         tmpText = GetComponent<TMP_Text>();
-        tmpText.text = "_";
+        StartCoroutine(CursorBlinking());
         text = "";
     }
 
@@ -47,8 +47,21 @@ public class TextWriter : MonoBehaviour
         }
         
         yield return new WaitForFixedUpdate();
-
-        tmpText.text = "_";
+        
         text = "";
+
+        StartCoroutine(CursorBlinking());
+    }
+
+    IEnumerator CursorBlinking()
+    {
+        WaitForSecondsRealtime wait = new WaitForSecondsRealtime(0.5f);
+        while (true)
+        {
+            tmpText.text = "_";
+            yield return wait;
+            tmpText.text = "";
+            yield return wait;
+        }
     }
 }
