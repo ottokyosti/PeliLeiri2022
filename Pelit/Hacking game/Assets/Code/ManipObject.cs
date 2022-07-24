@@ -49,7 +49,7 @@ public class ManipObject : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab) && modeSwapSystem.inManip)
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
             manipPerformed = false;
             gravityIcon.SetActive(false);

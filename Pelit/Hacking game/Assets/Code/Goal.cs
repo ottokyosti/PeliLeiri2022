@@ -5,12 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class Goal : MonoBehaviour
 {
+    [SerializeField]
+    private int sceneIndex;
+
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Player")
         {
-            //temp
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(sceneIndex);
         }
     }
 }
