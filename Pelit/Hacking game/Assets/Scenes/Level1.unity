@@ -1270,6 +1270,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2905134565626303697, guid: 496097e28d6911f4aa4f65a8c49830e8, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 2905134565626303698, guid: 496097e28d6911f4aa4f65a8c49830e8, type: 3}
       propertyPath: m_Name
       value: TestGoal

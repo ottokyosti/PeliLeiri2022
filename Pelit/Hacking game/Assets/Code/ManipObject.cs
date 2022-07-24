@@ -12,7 +12,6 @@ public class ManipObject : MonoBehaviour
     private bool shrunk = false;
     private Vector3 scale;
     private ModeSwapSystem modeSwapSystem;
-    private bool manipPerformed = false;
     [SerializeField]
     private GameObject crushBelow;
     [SerializeField]
@@ -22,6 +21,12 @@ public class ManipObject : MonoBehaviour
     private GameObject pushIcon;
     private GameObject pullIcon;
     private GameObject sizeIcon;
+
+    private bool flipGravity = false;
+    private bool push = false;
+    private bool pull = false;
+    private bool shrink = false;
+    private bool grow = false;
 
     void Start()
     {
@@ -49,67 +54,122 @@ public class ManipObject : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Tab) && modeSwapSystem.inManip)
         {
-            manipPerformed = false;
             gravityIcon.SetActive(false);
             pushIcon.SetActive(false);
             pullIcon.SetActive(false);
             sizeIcon.SetActive(false);
+            if (flipGravity)
+            {
+                flipGravity = false;
+                FlipGravity();
+            }
+            else if (push)
+            {
+                push = false;
+                ForceAdd(true);
+            }
+            else if (pull)
+            {
+                pull = false;
+                ForceAdd(false);
+            }
+            else if (shrink)
+            {
+                shrink = false;
+                StartCoroutine(Shrink());
+            }
+            else if (grow)
+            {
+                grow = false;
+                StartCoroutine(Grow());
+            }
         }
     }
 
     void OnMouseDown()
     {
-        if (modeSwapSystem.inManip && !manipPerformed)
+        if (modeSwapSystem.inManip)
         {
             if (modeSwapSystem.CurrentManip == ModeSwapSystem.AppliedManip.first)
             {
                 gravityIcon.SetActive(true);
-                FlipGravity();
-                manipPerformed = true;
+                pushIcon.SetActive(false);
+                pullIcon.SetActive(false);
+                sizeIcon.SetActive(false);
+                flipGravity = true;
+                push = false;
+                pull = false;
+                shrink = false;
+                grow = false;
+                if (GetComponent<Rigidbody2D>().gravityScale > 0)
+                {
+                    TextWriter.codeText.WriteText("Rigidbody2D.gravityScale = -1;");
+                }
+                else
+                {
+                    TextWriter.codeText.WriteText("Rigidbody2D.gravityScale = 1;");
+                }
             }
             else if (modeSwapSystem.CurrentManip == ModeSwapSystem.AppliedManip.second)
             {
+                gravityIcon.SetActive(false);
                 pushIcon.SetActive(true);
-                ForceAdd(true);
-                manipPerformed = true;
+                pullIcon.SetActive(false);
+                sizeIcon.SetActive(false);
+                flipGravity = false;
+                push = true;
+                pull = false;
+                shrink = false;
+                grow = false;
+                TextWriter.codeText.WriteText("Rigidbody2d.AddForce(10);");
             }
             else if (modeSwapSystem.CurrentManip == ModeSwapSystem.AppliedManip.third)
             {
+                gravityIcon.SetActive(false);
+                pushIcon.SetActive(false);
                 pullIcon.SetActive(true);
-                ForceAdd(false);
-                manipPerformed = true;
+                sizeIcon.SetActive(false);
+                flipGravity = false;
+                push = false;
+                pull = true;
+                shrink = false;
+                grow = false;
+                TextWriter.codeText.WriteText("Rigidbody2d.AddForce(-10);");
             }
             else if (modeSwapSystem.CurrentManip == ModeSwapSystem.AppliedManip.fourth)
             {
+                gravityIcon.SetActive(false);
+                pushIcon.SetActive(false);
+                pullIcon.SetActive(false);
                 sizeIcon.SetActive(true);
                 if (!shrunk)
                 {
                     shrunk = true;
-                    StartCoroutine(Shrink());
+                    flipGravity = false;
+                    push = false;
+                    pull = false;
+                    shrink = true;
+                    grow = false;
+                    TextWriter.codeText.WriteText("gameObject.transform.localScale = 0.5f;");
                 }
                 else if (shrunk)
                 {
                     shrunk = false;
-                    StartCoroutine(Grow());
+                    flipGravity = false;
+                    push = false;
+                    pull = false;
+                    shrink = false;
+                    grow = true;
+                    TextWriter.codeText.WriteText("gameObject.transform.localScale = 1f;");
                 }
-                manipPerformed = true;
             }
         }
     }
 
     private void FlipGravity()
     {
-        if (GetComponent<Rigidbody2D>().gravityScale > 0)
-        {
-            TextWriter.codeText.WriteText("Rigidbody2D.gravityScale = -1;");
-        }
-        else
-        {
-            TextWriter.codeText.WriteText("Rigidbody2D.gravityScale = 1;");
-        }
-
         GetComponent<Rigidbody2D>().gravityScale *= -1;
         if (crushBelow != null && crushAbove != null)
         {
@@ -131,20 +191,17 @@ public class ManipObject : MonoBehaviour
         if (forward)
         {
             Debug.Log("forward");
-            TextWriter.codeText.WriteText("Rigidbody2d.AddForce(10);");
             GetComponent<Rigidbody2D>().AddForce(new Vector3(1, 0, 0) * force);
         }
         else
         {
             Debug.Log("back");
-            TextWriter.codeText.WriteText("Rigidbody2d.AddForce(-10);");
             GetComponent<Rigidbody2D>().AddForce(new Vector3(-1, 0, 0) * force);
         }
     }
 
     private IEnumerator Shrink()
     {
-        TextWriter.codeText.WriteText("gameObject.transform.localScale = 0.5f;");
         Vector3 startScale = transform.localScale;
         Vector3 targetScale = new Vector3(0.5f * startScale.x, 0.5f * startScale.y, 0.5f * startScale.z);
         float timer = 0;
@@ -162,7 +219,6 @@ public class ManipObject : MonoBehaviour
 
     private IEnumerator Grow()
     {
-        TextWriter.codeText.WriteText("gameObject.transform.localScale = 1f;");
         Vector3 startScale = transform.localScale;
         Vector3 targetScale = new Vector3(scale.x, scale.y, scale.z);
         float timer = 0;

@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/TutorialPushPull.unity
     guid: 46b9766c5dab9f4419b94788ddc7b899
   - enabled: 1
+    path: Assets/Scenes/TutorialGravity.unity
+    guid: ef20b70cc4c1e6e479fd663d1e52d33c
+  - enabled: 1
     path: Assets/Scenes/Level1.unity
     guid: 7b87e0bc9ab9455498a54d3857f3f275
   m_configObjects: {}
