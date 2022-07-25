@@ -22,9 +22,12 @@ public class ShootingEnemyFOV : MonoBehaviour
 
     [SerializeField] private GameObject projectile;
 
+    private AudioSource audioSource;
+
     private void Start()
     {
         playerRef = GameObject.FindGameObjectWithTag("Player");
+        audioSource = GetComponent<AudioSource>();
         StartCoroutine(FOVCheck());   
     }
 
@@ -44,6 +47,7 @@ public class ShootingEnemyFOV : MonoBehaviour
             if (timeBtwShots <= 0)
             {
                 var tempProjectile = Instantiate(projectile, (Vector2) transform.position + directionToTarget, Quaternion.identity);
+                audioSource.Play();
                 tempProjectile.GetComponent<Projectile>()._direction = directionToTarget;
                 timeBtwShots = fireDelay;
             }

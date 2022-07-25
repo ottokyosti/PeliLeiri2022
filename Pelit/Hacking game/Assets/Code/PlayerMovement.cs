@@ -13,10 +13,11 @@ public class PlayerMovement : MonoBehaviour
     private float maxHorizontalVelocity;
     private Animator animator;
     private CheckpointSystem checkpointSystem;
-    
+    private AudioSource[] audioSources;
 
     private void Start()
     {
+        audioSources = GetComponentsInChildren<AudioSource>();
         animator = GetComponent<Animator>();
         rb2D = GetComponent<Rigidbody2D>();
         maxHorizontalVelocity = 7.7f;
@@ -51,6 +52,10 @@ public class PlayerMovement : MonoBehaviour
             rb2D.AddForce(new Vector2(moveHorizontal * moveVelocity, 0f), ForceMode2D.Impulse);
             scale.x = Mathf.Abs(scale.x);
             animator.SetBool("walking", true);
+            if (!(audioSources[1].isPlaying) && !(isJumping))
+            {
+                audioSources[1].Play();
+            }
         }
 
         if (moveHorizontal < -0.1f)
@@ -58,16 +63,23 @@ public class PlayerMovement : MonoBehaviour
             rb2D.AddForce(new Vector2(moveHorizontal * moveVelocity, 0f), ForceMode2D.Impulse);
             scale.x = -(Mathf.Abs(scale.x));
             animator.SetBool("walking", true);
+            if (!(audioSources[1].isPlaying) && !(isJumping))
+            {
+                audioSources[1].Play();
+            }
         }
 
         if (moveHorizontal == 0)
         {
             animator.SetBool("walking", false);
+            audioSources[1].Stop();
         }
 
         if (moveVertical > 0.1f && !(isJumping))
         {
             rb2D.AddForce(new Vector2(0f, moveVertical * jumpVelocity), ForceMode2D.Impulse);
+            audioSources[1].Stop();
+            audioSources[0].Play();
             isJumping = true;
         }
         

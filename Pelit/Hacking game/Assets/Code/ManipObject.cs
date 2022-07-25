@@ -17,6 +17,8 @@ public class ManipObject : MonoBehaviour
     [SerializeField]
     private GameObject crushAbove;
 
+    private AudioSource audioSource;
+
     private GameObject gravityIcon;
     private GameObject pushIcon;
     private GameObject pullIcon;
@@ -30,6 +32,7 @@ public class ManipObject : MonoBehaviour
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         gravityIcon = transform.Find("GravityIcon").gameObject;
         pushIcon = transform.Find("PushIcon").gameObject;
         pullIcon = transform.Find("PullIcon").gameObject;
@@ -94,6 +97,7 @@ public class ManipObject : MonoBehaviour
         {
             if (modeSwapSystem.CurrentManip == ModeSwapSystem.AppliedManip.first)
             {
+                audioSource.Play();
                 gravityIcon.SetActive(true);
                 pushIcon.SetActive(false);
                 pullIcon.SetActive(false);
@@ -114,6 +118,7 @@ public class ManipObject : MonoBehaviour
             }
             else if (modeSwapSystem.CurrentManip == ModeSwapSystem.AppliedManip.second)
             {
+                audioSource.Play();
                 gravityIcon.SetActive(false);
                 pushIcon.SetActive(true);
                 pullIcon.SetActive(false);
@@ -127,6 +132,7 @@ public class ManipObject : MonoBehaviour
             }
             else if (modeSwapSystem.CurrentManip == ModeSwapSystem.AppliedManip.third)
             {
+                audioSource.Play();
                 gravityIcon.SetActive(false);
                 pushIcon.SetActive(false);
                 pullIcon.SetActive(true);
@@ -140,6 +146,7 @@ public class ManipObject : MonoBehaviour
             }
             else if (modeSwapSystem.CurrentManip == ModeSwapSystem.AppliedManip.fourth)
             {
+                audioSource.Play();
                 gravityIcon.SetActive(false);
                 pushIcon.SetActive(false);
                 pullIcon.SetActive(false);
