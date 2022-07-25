@@ -50,6 +50,6 @@ public class PauseMenu : MonoBehaviour
         canvas.SetActive(false);
         spamInhibitor = false;
         StartCoroutine(WaitTime());
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
