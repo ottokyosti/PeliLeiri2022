@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/TutorialGravity.unity
     guid: ef20b70cc4c1e6e479fd663d1e52d33c
   - enabled: 1
+    path: Assets/Scenes/TutorialSizeAndEnemy.unity
+    guid: 4c620ca42e3a48d4bb856c9e4b0eeadc
+  - enabled: 1
     path: Assets/Scenes/Level1.unity
     guid: 7b87e0bc9ab9455498a54d3857f3f275
   m_configObjects: {}
