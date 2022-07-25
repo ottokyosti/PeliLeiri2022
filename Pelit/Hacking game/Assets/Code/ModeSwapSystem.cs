@@ -28,13 +28,21 @@ public class ModeSwapSystem : MonoBehaviour
 
     [SerializeField] private GameObject codeText;
 
+    [SerializeField] private bool firstEnabled = true;
+
+    [SerializeField] private bool secondEnabled = true;
+
+    [SerializeField] private bool thirdEnabled = true;
+
+    [SerializeField] private bool fourthEnabled = true;
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             SwapMode();
         }
-        if (Input.GetKeyDown(KeyCode.Alpha1) && inManip)
+        if (Input.GetKeyDown(KeyCode.Alpha1) && inManip && firstEnabled)
         {
             ManipMode(1);
             bg1.SetActive(true);
@@ -42,7 +50,7 @@ public class ModeSwapSystem : MonoBehaviour
             bg3.SetActive(false);
             bg4.SetActive(false);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2) && inManip)
+        if (Input.GetKeyDown(KeyCode.Alpha2) && inManip && secondEnabled)
         {
             ManipMode(2);
             bg2.SetActive(true);
@@ -50,7 +58,7 @@ public class ModeSwapSystem : MonoBehaviour
             bg3.SetActive(false);
             bg4.SetActive(false);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3) && inManip)
+        if (Input.GetKeyDown(KeyCode.Alpha3) && inManip && thirdEnabled)
         {
             ManipMode(3);
             bg3.SetActive(true);
@@ -58,7 +66,7 @@ public class ModeSwapSystem : MonoBehaviour
             bg1.SetActive(false);
             bg4.SetActive(false);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha4) && inManip)
+        if (Input.GetKeyDown(KeyCode.Alpha4) && inManip && fourthEnabled)
         {
             ManipMode(4);
             bg4.SetActive(true);
