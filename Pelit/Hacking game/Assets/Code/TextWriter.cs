@@ -14,6 +14,8 @@ public class TextWriter : MonoBehaviour
 
     private TMP_Text tmpText;
 
+    [SerializeField] private bool mainmenu;
+
     private void Start()
     {
         if (codeText == null)
@@ -26,8 +28,17 @@ public class TextWriter : MonoBehaviour
         }
 
         tmpText = GetComponent<TMP_Text>();
-        StartCoroutine(CursorBlinking());
-        text = "";
+        if (!(mainmenu))
+        {
+            StartCoroutine(CursorBlinking());
+            text = "";
+        }
+        else
+        {
+            StartCoroutine(MainMenuWriting("Code Hero"));
+            text = "";
+        }
+        
     }
 
     public void WriteText(string textToWrite)
@@ -48,13 +59,16 @@ public class TextWriter : MonoBehaviour
         
         Coroutine lastRoutine = StartCoroutine(CursorBlinkingWholeText(textToWrite));
 
-        yield return new WaitForFixedUpdate();
+        if (!(mainmenu))
+        {
+            yield return new WaitForFixedUpdate();
 
-        StopCoroutine(lastRoutine);
+            StopCoroutine(lastRoutine);
 
-        text = "";
+            text = "";
 
-        StartCoroutine(CursorBlinking());
+            StartCoroutine(CursorBlinking());
+        }
     }
 
     IEnumerator CursorBlinking()
@@ -79,5 +93,19 @@ public class TextWriter : MonoBehaviour
             tmpText.text = textToWrite;
             yield return wait;
         }
+    }
+
+    IEnumerator MainMenuWriting(string textToWrite)
+    {
+        Coroutine lastRoutine = StartCoroutine(CursorBlinking());
+        yield return new WaitForSecondsRealtime(2f);
+        StopCoroutine(lastRoutine);
+        for (int i = 0; i < textToWrite.Length; i++)
+        {
+            text = text + textToWrite[i];
+            tmpText.text = text + "_";
+            yield return new WaitForSecondsRealtime(writeDelay);
+        }
+        StartCoroutine(CursorBlinkingWholeText(textToWrite));
     }
 }

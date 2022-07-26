@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: d47962a931f5850449c3fc2a8eac5b20
+  - enabled: 1
     path: Assets/Scenes/TutorialPushPull.unity
     guid: 46b9766c5dab9f4419b94788ddc7b899
   - enabled: 1
