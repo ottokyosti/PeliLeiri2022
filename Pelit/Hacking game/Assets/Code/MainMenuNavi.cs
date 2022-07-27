@@ -19,4 +19,9 @@ public class MainMenuNavi : MonoBehaviour
     {
         TextWriter.codeText.WriteText(textToWrite);
     }
+
+    public void LoadSpecificLevel(string levelName)
+    {
+        SceneManager.LoadScene(levelName);
+    }
 }

@@ -52,9 +52,9 @@ public class PlayerMovement : MonoBehaviour
             rb2D.AddForce(new Vector2(moveHorizontal * moveVelocity, 0f), ForceMode2D.Impulse);
             scale.x = Mathf.Abs(scale.x);
             animator.SetBool("walking", true);
-            if (!(audioSources[1].isPlaying) && !(isJumping))
+            if (!(audioSources[2].isPlaying) && !(isJumping))
             {
-                audioSources[1].Play();
+                audioSources[2].Play();
             }
         }
 
@@ -63,23 +63,23 @@ public class PlayerMovement : MonoBehaviour
             rb2D.AddForce(new Vector2(moveHorizontal * moveVelocity, 0f), ForceMode2D.Impulse);
             scale.x = -(Mathf.Abs(scale.x));
             animator.SetBool("walking", true);
-            if (!(audioSources[1].isPlaying) && !(isJumping))
+            if (!(audioSources[2].isPlaying) && !(isJumping))
             {
-                audioSources[1].Play();
+                audioSources[2].Play();
             }
         }
 
         if (moveHorizontal == 0)
         {
             animator.SetBool("walking", false);
-            audioSources[1].Stop();
+            audioSources[2].Stop();
         }
 
         if (moveVertical > 0.1f && !(isJumping))
         {
             rb2D.AddForce(new Vector2(0f, moveVertical * jumpVelocity), ForceMode2D.Impulse);
-            audioSources[1].Stop();
-            audioSources[0].Play();
+            audioSources[2].Stop();
+            audioSources[1].Play();
             isJumping = true;
         }
         
