@@ -36,6 +36,13 @@ public class ModeSwapSystem : MonoBehaviour
 
     [SerializeField] private bool fourthEnabled = true;
 
+    private AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab))
@@ -44,6 +51,7 @@ public class ModeSwapSystem : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha1) && inManip && firstEnabled)
         {
+            audioSource.Play();
             ManipMode(1);
             bg1.SetActive(true);
             bg2.SetActive(false);
@@ -52,6 +60,7 @@ public class ModeSwapSystem : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha2) && inManip && secondEnabled)
         {
+            audioSource.Play();
             ManipMode(2);
             bg2.SetActive(true);
             bg1.SetActive(false);
@@ -60,6 +69,7 @@ public class ModeSwapSystem : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha3) && inManip && thirdEnabled)
         {
+            audioSource.Play();
             ManipMode(3);
             bg3.SetActive(true);
             bg2.SetActive(false);
@@ -68,6 +78,7 @@ public class ModeSwapSystem : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha4) && inManip && fourthEnabled)
         {
+            audioSource.Play();
             ManipMode(4);
             bg4.SetActive(true);
             bg2.SetActive(false);
