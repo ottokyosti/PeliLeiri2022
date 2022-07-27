@@ -43,12 +43,12 @@ public class BossNode : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "crush")
+        if (col.gameObject.tag == "crush" && weakPointOpened)
         {
             hitbox.enabled = false;
             destroyed = true;
             GetComponent<SpriteRenderer>().sprite = destroyedSprite;
-            OpenDoor();
+            door.GetComponent<DoorOpen>().open = true;
         }
     }
 
@@ -56,10 +56,5 @@ public class BossNode : MonoBehaviour
     {
         GetComponent<SpriteRenderer>().sprite = vulnerableSprite;
         hitbox.enabled = true;
-    }
-
-    private void OpenDoor()
-    {
-        
     }
 }
