@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 314471296387200448}
   m_Layer: 0
   m_Name: CrushAbove
-  m_TagString: Untagged
+  m_TagString: crush
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 1266522856802088253}
   m_Layer: 0
   m_Name: CrushBelow
-  m_TagString: Untagged
+  m_TagString: crush
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -8,6 +8,7 @@ TagManager:
   - forceButton
   - floor
   - Enemy
+  - crush
   layers:
   - Default
   - TransparentFX
