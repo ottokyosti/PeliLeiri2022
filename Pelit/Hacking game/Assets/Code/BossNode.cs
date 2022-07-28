@@ -5,6 +5,9 @@ using UnityEngine;
 public class BossNode : MonoBehaviour
 {
     [SerializeField]
+    private GameObject DestroyParticle;
+
+    [SerializeField]
     private GameObject minion1;
 
     [SerializeField]
@@ -47,6 +50,7 @@ public class BossNode : MonoBehaviour
         {
             hitbox.enabled = false;
             destroyed = true;
+            Instantiate(DestroyParticle, transform.position, transform.rotation);
             GetComponent<SpriteRenderer>().sprite = destroyedSprite;
             door.GetComponent<DoorOpen>().open = true;
         }
