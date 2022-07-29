@@ -177,6 +177,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveVelocity: 1.25
   jumpVelocity: 25
+  jumpSprite: {fileID: 21300000, guid: ff446e7e441db5e4a818e30d12fa572b, type: 3}
+  normalSprite: {fileID: 21300000, guid: 20c4b391dbd48114c89738368d8a1bd8, type: 3}
 --- !u!61 &9180982488512158395
 BoxCollider2D:
   m_ObjectHideFlags: 0

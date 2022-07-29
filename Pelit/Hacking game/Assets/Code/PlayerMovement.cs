@@ -51,7 +51,10 @@ public class PlayerMovement : MonoBehaviour
         {
             rb2D.AddForce(new Vector2(moveHorizontal * moveVelocity, 0f), ForceMode2D.Impulse);
             scale.x = Mathf.Abs(scale.x);
-            animator.SetBool("walking", true);
+            if (!isJumping)
+            {
+                animator.SetBool("walking", true);
+            }
             if (!(audioSources[2].isPlaying) && !(isJumping))
             {
                 audioSources[2].Play();
@@ -62,7 +65,10 @@ public class PlayerMovement : MonoBehaviour
         {
             rb2D.AddForce(new Vector2(moveHorizontal * moveVelocity, 0f), ForceMode2D.Impulse);
             scale.x = -(Mathf.Abs(scale.x));
-            animator.SetBool("walking", true);
+            if (!isJumping)
+            {
+                animator.SetBool("walking", true);
+            }
             if (!(audioSources[2].isPlaying) && !(isJumping))
             {
                 audioSources[2].Play();
@@ -77,6 +83,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (moveVertical > 0.1f && !(isJumping))
         {
+            animator.SetBool("walking", false);
+            animator.SetBool("jumping", true);
             rb2D.AddForce(new Vector2(0f, moveVertical * jumpVelocity), ForceMode2D.Impulse);
             audioSources[2].Stop();
             audioSources[1].Play();
@@ -110,6 +118,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (col.gameObject.tag == "floor")
         {
+            animator.SetBool("jumping", false);
             isJumping = false;
         }
     }
